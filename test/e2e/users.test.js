@@ -18,6 +18,7 @@ describe('Users API', () => {
             .send({
                 email: 'hello@test.com',
                 firstName: 'Bob',
+                driver: false,
                 password: 'pass123'
             })
             .then(checkOk)
