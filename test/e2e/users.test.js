@@ -29,4 +29,17 @@ describe('Users API', () => {
     it('signs up the user', () => {
         assert.isDefined(token);
     });
+
+    it('signs in a user', () => {
+        return request
+            .post('api/users/signin')
+            .send({
+                email: 'bobby@email.com',
+                password: 'bobby'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.isDefined(body.token);
+            });
+    });
 });
