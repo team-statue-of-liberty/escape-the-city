@@ -15,6 +15,10 @@ describe('UserModel model', () => {
 
         assert.deepEqual(userModel.email, data.email);
         assert.isUndefined(userModel.password, 'password should be gone');
+
+        userModel.generateHash(data.password);
+        assert.isDefined(userModel.hash, 'has exists');
+        assert.notEqual(userModel.hash, data.password, 'has and pass different');
     });
 
 });
