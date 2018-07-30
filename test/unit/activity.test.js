@@ -20,4 +20,12 @@ describe.only('Activity model', () => {
         assert.deepEqual(json, data);
         assert.isUndefined(activity.validateSync());
     });
+
+    it('validates required fields', () => {
+        const activity = new Activity({});
+        const errors = getErrors(activity.validateSync(), 2);
+
+        assert.equal(errors.name.kind, 'required');
+        assert.equal(errors.indoor.kind, 'required');
+    });
 });
