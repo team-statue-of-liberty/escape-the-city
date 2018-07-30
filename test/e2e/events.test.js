@@ -32,7 +32,7 @@ const testUser = {
 describe.only('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
-    // beforeEach(() => dropCollection('events'));
+    beforeEach(() => dropCollection('events'));
 
     beforeEach(() => {
         return request  
