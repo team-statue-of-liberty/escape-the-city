@@ -38,4 +38,24 @@ describe.only('Events model', () => {
         assert.equal(errors['desiredGear.0.item'].kind, 'required');
         assert.equal(errors.createdBy.kind, 'required');
     });
+
+    it('does not accept invalid min values', () => {
+        const event = new Event({
+            description: 'fun in the sun at Lost Lake',
+            where: 'Lost Lake',
+            when: new Date(),
+            groupSize: 0,
+            desiredGear: [{
+                item: 'Cornhole'
+            },
+            {
+                item: 'Kayak'
+            }],
+            createdBy: Types.ObjectId()
+        });
+        const errors = getErrors(event.validateSync(), 1);
+        assert.equal(errors.groupSize.kind, 'min');
+        event.groupSize = 5;
+        assert.isUndefined(event.validateSync());
+    });
 });
