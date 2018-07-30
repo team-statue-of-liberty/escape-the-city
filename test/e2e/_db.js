@@ -1,5 +1,5 @@
 const connect = require('../../lib/connect');
-connect('mongodb://localhost:27017/[ENTER DB NAME]');
+connect('mongodb://localhost:27017/escape');
 const mongoose = require('mongoose');
 
 after(() => {
