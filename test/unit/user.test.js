@@ -1,7 +1,7 @@
 const chai = require('chai');
 const { assert } = chai;
 const UserModel = require('../../lib/models/user');
-// const { getErrors } = require('./helpers');
+const { getErrors } = require('./helpers');
 
 describe('UserModel model', () => {
 
@@ -19,6 +19,20 @@ describe('UserModel model', () => {
         userModel.generateHash(data.password);
         assert.isDefined(userModel.hash, 'has exists');
         assert.notEqual(userModel.hash, data.password, 'has and pass different');
+
+        assert.isUndefined(userModel.validateSync());
+
+        assert.isTrue(userModel.comparePassword(data.password), 'compare a good password');
+        assert.isFalse(userModel.comparePassword('123abc'), 'compare a bad password');
     });
 
+    it('required fields are filled in', () => {
+        const userModel = new UserModel({});
+
+        const errors = getErrors(userModel.validateSync(), 3);
+
+        assert.equal(errors.firstName.kind, 'required');
+        assert.equal(errors.email.kind, 'required');
+        assert.equal(errors.hash.kind, 'required');
+    });
 });
