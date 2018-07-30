@@ -3,7 +3,7 @@ const { assert } = chai;
 const UserModel = require('../../lib/models/user');
 const { getErrors } = require('./helpers');
 
-describe.only('UserModel model', () => {
+describe('UserModel model', () => {
 
     it('validates good model', () => {
         const data = {

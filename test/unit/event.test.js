@@ -4,7 +4,7 @@ const { Types } = require('mongoose');
 const Event = require('../../lib/models/event');
 const { getErrors } = require('./helpers');
 
-describe('Events model', () => {
+describe.only('Events model', () => {
 
     it('validates good model', () => {
         const data = {
@@ -23,7 +23,9 @@ describe('Events model', () => {
     });
 
     it('validates that all fields are required', () => {
-        const event = new Event({});
+        const event = new Event({
+            bringGear: []
+        });
         const errors = getErrors(event.validateSync(), 4);
         assert.equal(errors.where.kind, 'required');
         assert.equal(errors.when.kind, 'required');
