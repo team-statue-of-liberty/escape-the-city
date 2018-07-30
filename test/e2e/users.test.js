@@ -14,7 +14,7 @@ describe('Users API', () => {
     let token;
     beforeEach(() => {
         return request  
-            .post('/api/auth/signup')
+            .post('/api/users/signup')
             .send({
                 email: 'hello@test.com',
                 firsName: 'Bob',
