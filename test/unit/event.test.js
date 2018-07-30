@@ -4,7 +4,7 @@ const { Types } = require('mongoose');
 const Event = require('../../lib/models/event');
 const { getErrors } = require('./helpers');
 
-describe.only('Events model', () => {
+describe('Events model', () => {
 
     it('validates good model', () => {
         const data = {
