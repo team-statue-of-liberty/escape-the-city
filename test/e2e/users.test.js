@@ -42,4 +42,11 @@ describe('Users API', () => {
                 assert.isDefined(body.token);
             });
     });
+
+    it('verifies a token', () => {
+        return request
+            .get('/api/users/verify')
+            .set('Authorization', token)
+            .then(checkOk);
+    });
 });
