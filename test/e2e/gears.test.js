@@ -1,6 +1,7 @@
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
+const { Types } = require('mongoose');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -15,7 +16,12 @@ describe('Gears API', () => {
     beforeEach(() => {
         return request  
             .post('/api/gears')
-            .send(floaty)
+            .send({
+                item: floaty,
+                description: 'unicorn',
+                quantity: 3,
+                user: Types.ObjectId()
+            })
             .then(checkOk)
             .then(({ body }) => {
                 floaty = body.floaty;
