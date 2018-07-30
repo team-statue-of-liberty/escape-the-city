@@ -29,7 +29,7 @@ const testUser = {
 };
 
 
-describe.only('Events API', () => {
+describe('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
