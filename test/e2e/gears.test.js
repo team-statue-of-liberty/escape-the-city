@@ -1,6 +1,7 @@
 const { assert } = require('chai');
 const request = require('./request');
-const { dropCollection  } = require('./_db');
+const { dropCollection } = require('./_db');
+// const { Types } = require('mongoose');
 const { verify } = require('../../lib/utils/token-service');
 
 const checkOk = res => {
@@ -8,9 +9,8 @@ const checkOk = res => {
     return res;
 };
 
-
 let token;
-let testEvent;
+let floaty;
 
 const save = (path, data, token = null) => {
     return request
@@ -28,11 +28,10 @@ const testUser = {
     driver: true
 };
 
-
-describe('Events API', () => {
+describe.only('Gears API', () => {
 
     beforeEach(() => dropCollection('users'));
-    beforeEach(() => dropCollection('events'));
+    beforeEach(() => dropCollection('gears'));
 
     beforeEach(() => {
         return request  
@@ -49,24 +48,18 @@ describe('Events API', () => {
     });
 
     beforeEach(() => {
-        return save('events', {
-            description: 'fun in the sun at Lost Lake',
-            where: 'Lost Lake',
-            when: new Date(),
-            groupSize: 8,
-            desiredGear: [{
-                item: 'Cornhole'
-            },
-            {
-                item: 'Kayak'
-            }],
-            createdBy: testUser._id
-        }, token)
-            .then(data => testEvent = data);
+        return save('gears', {
+            item: 'floaty',
+            description: 'unicorn',
+            quantity: 3,
+            user: testUser._id
+        }, token) 
+            .then(data => floaty = data);
     });
 
-    it('saves an event to the database', () => {
-        assert.isOk(testEvent._id);
+    it('saves a gear item', () => {
+        assert.isDefined(floaty);
     });
+
 
 });
