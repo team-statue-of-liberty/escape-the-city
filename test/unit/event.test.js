@@ -12,24 +12,30 @@ describe.only('Events model', () => {
             where: 'Lost Lake',
             when: new Date(),
             groupSize: 8,
-            bringGear: ['Cornhole', 'Kayak', 'football'],
+            desiredGear: [{
+                item: 'Cornhole'
+            },
+            {
+                item: 'Kayak'
+            }],
             createdBy: Types.ObjectId()
         };
         const event = new Event(data);
 
         const json = event.toJSON();
         delete json._id;
+        json.desiredGear.forEach(item => delete item._id);
         assert.deepEqual(json, data);
     });
 
     it('validates that all fields are required', () => {
         const event = new Event({
-            bringGear: []
+            desiredGear: [{}]
         });
         const errors = getErrors(event.validateSync(), 4);
         assert.equal(errors.where.kind, 'required');
         assert.equal(errors.when.kind, 'required');
-        assert.equal(errors.bringGear.kind, 'required');
+        assert.equal(errors['desiredGear.0.item'].kind, 'required');
         assert.equal(errors.createdBy.kind, 'required');
     });
 });
