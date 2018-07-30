@@ -17,7 +17,7 @@ describe('Users API', () => {
             .post('/api/users/signup')
             .send({
                 email: 'hello@test.com',
-                firsName: 'Bob',
+                firstName: 'Bob',
                 password: 'pass123'
             })
             .then(checkOk)
