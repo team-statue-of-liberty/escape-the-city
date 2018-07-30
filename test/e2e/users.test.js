@@ -7,7 +7,7 @@
 //     return res;
 // };
 
-describe('Things API', () => {
+describe('Users API', () => {
 
     it('working...', () => {
 
