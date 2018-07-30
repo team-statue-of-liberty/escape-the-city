@@ -1,6 +1,6 @@
 const { assert } = require('chai');
 const request = require('./request');
-// const { dropCollection  } = require('./_db');
+const { dropCollection  } = require('./_db');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -9,7 +9,7 @@ const checkOk = res => {
 
 describe('Users API', () => {
 
-    // beforeEach(() => dropCollection('users'));
+    beforeEach(() => dropCollection('users'));
 
     let token;
     beforeEach(() => {
@@ -32,10 +32,10 @@ describe('Users API', () => {
 
     it('signs in a user', () => {
         return request
-            .post('api/users/signin')
+            .post('/api/users/signin')
             .send({
-                email: 'bobby@email.com',
-                password: 'bobby'
+                email: 'hello@test.com',
+                password: 'pass123'
             })
             .then(checkOk)
             .then(({ body }) => {
