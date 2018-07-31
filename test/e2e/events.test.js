@@ -115,4 +115,16 @@ describe.only('Events API', () => {
                 assert.equal(body.createdBy.email, 'justin@email.com');
             });
     });
+
+    it('allows admins to edit posts', () => {
+        testEvent.description = 'ultra super duper fun';
+        return request
+            .put(`/api/events/${testEvent._id}`)
+            .set('Authorization', token)
+            .send(testEvent)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.equal(body.description, testEvent.description);
+            });
+    });
 });
