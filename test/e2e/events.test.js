@@ -164,12 +164,14 @@ describe.only('Events API', () => {
             });
     });
 
-    it('allows admins to delete events', () => {
+    //discuss with group about delete functionality and how it should work
+    it('will not delete if there are activities associated with event', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token)
             .then(({ body }) => {
-                assert.deepEqual(body, { removed: true });
+                assert.deepEqual(body, { removed: false });
             });
     });
+
 });
