@@ -8,9 +8,10 @@ const checkOk = res => {
     return res;
 };
 
-
 let token;
 let testEvent;
+let testActivity1;
+let testActivity2;
 
 const save = (path, data, token = null) => {
     return request
@@ -33,6 +34,7 @@ describe.only('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
+    beforeEach(() => dropCollection('activities'));
 
     beforeEach(() => {
         return request  
@@ -65,6 +67,30 @@ describe.only('Events API', () => {
             .then(data => testEvent = data);
     });
 
+    beforeEach(() => {
+        return save('activities', {
+            name: 'golfing',
+            description: '18-hole round',
+            eventId: testEvent._id,
+            indoor: false
+        }, token)
+            .then(data => {
+                testActivity1 = data;
+            });
+    });
+
+    beforeEach(() => {
+        return save('activities', {
+            name: 'swimming',
+            description: 'splashy time',
+            eventId: testEvent._id,
+            indoor: false
+        }, token)
+            .then(data => {
+                testActivity2 = data;
+            });
+    });
+
     it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
@@ -78,12 +104,15 @@ describe.only('Events API', () => {
             });
     });
 
-    it('gets one event by id', () => {
+    it('gets one event by id, popoulating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, testEvent);
+                assert.isDefined(body.activities);
+                assert.equal(body.activities.length, 2);
+                assert.deepEqual(body.desiredGear, testEvent.desiredGear);
+                assert.equal(body.createdBy.email, 'justin@email.com');
             });
     });
 });
