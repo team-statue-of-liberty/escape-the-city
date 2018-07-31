@@ -58,9 +58,9 @@ const testUser2 = {
 describe('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
-    beforeEach(() => dropCollection('events'));
-    beforeEach(() => dropCollection('activities'));
-    beforeEach(() => dropCollection('gears'));
+    // beforeEach(() => dropCollection('events'));
+    // beforeEach(() => dropCollection('activities'));
+    // beforeEach(() => dropCollection('gears'));
 
     beforeEach(() => {
         return request  
@@ -184,7 +184,7 @@ describe('Events API', () => {
             });
     });
 
-    it('saves an event to the database', () => {
+    it.only('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
 
