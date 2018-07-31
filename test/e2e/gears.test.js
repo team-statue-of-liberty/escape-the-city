@@ -42,7 +42,7 @@ const testUser = {
     driver: true
 };
 
-describe.only('Gears API', () => {
+describe('Gears API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('gears'));

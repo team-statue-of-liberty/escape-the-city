@@ -21,6 +21,8 @@ const makeSimpleActivity = (activity) => {
 
 let token;
 let token2;
+let hammock;
+let floaty;
 let testEvent;
 let testEvent2;
 let testActivity1;
@@ -53,11 +55,12 @@ const testUser2 = {
 };
 
 
-describe('Events API', () => {
+describe.only('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
     beforeEach(() => dropCollection('activities'));
+    beforeEach(() => dropCollection('gears'));
 
     beforeEach(() => {
         return request  
@@ -71,6 +74,26 @@ describe('Events API', () => {
                         testUser._id = body.id;
                     });
             });
+    });
+
+    beforeEach(() => {
+        return save('gears', {
+            item: 'hammock',
+            description: 'Eno Double Nest 300lb capacity',
+            quantity: 1,
+            user: testUser2._id
+        }, token) 
+            .then(data => hammock = data);
+    });
+
+    beforeEach(() => {
+        return save('gears', {
+            item: 'floaty',
+            description: 'unicorn',
+            quantity: 3,
+            user: testUser._id
+        }, token) 
+            .then(data => floaty = data);
     });
 
     beforeEach(() => {
@@ -94,7 +117,7 @@ describe('Events API', () => {
             when: new Date(),
             groupSize: 8,
             desiredGear: [{
-                item: 'Cornhole'
+                item: 'hammock'
             },
             {
                 item: 'Kayak'
@@ -179,6 +202,15 @@ describe('Events API', () => {
                 assert.deepEqual(body.activities[1], makeSimpleActivity(testActivity2));
                 assert.deepEqual(body.desiredGear, testEvent.desiredGear);
                 assert.equal(body.createdBy.email, 'justin@email.com');
+            });
+    });
+
+    it('gets events by gear', () => {
+        return request
+            .get(`/api/events/match/${testUser2._id}`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, testEvent);
             });
     });
 
