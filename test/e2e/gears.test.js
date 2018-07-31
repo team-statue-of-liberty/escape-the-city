@@ -106,5 +106,14 @@ describe.only('Gears API', () => {
             });
     });
 
+    it('allows user to delete gear', () => {
+        return request
+            .delete(`/api/gears/${floaty._id}`)
+            .set('Authorization', token)
+            .then(({ body }) => {
+                assert.deepEqual(body, {removed: true });
+            });
+    });
+
 
 });
