@@ -95,8 +95,7 @@ describe('Activities API', () => {
             });
     });
 
-    // TODO: delete 
-    it.only('removes an activity on DELETE', () => {
+    it('removes an activity on DELETE', () => {
         return request 
             .delete(`/api/activities/${testActivity._id}`)
             .set('Authorization', token)
