@@ -81,7 +81,7 @@ describe('Gears API', () => {
             .then(data => floaty = data);
     });
 
-    it.only('saves a gear item', () => {
+    it('saves a gear item', () => {
         assert.isDefined(floaty);
     });
 

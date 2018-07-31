@@ -78,7 +78,7 @@ describe('Activities API', () => {
             });
     });
 
-    it('saves an activity on POST', () => {
+    it.only('saves an activity on POST', () => {
         assert.isOk(testActivity._id);
     });
 
