@@ -205,7 +205,7 @@ describe.only('Events API', () => {
             });
     });
 
-    it('gets events by gear', () => {
+    it.only('gets events by gear', () => {
         return request
             .get(`/api/events/match/${testUser2._id}`)
             .then(checkOk)
