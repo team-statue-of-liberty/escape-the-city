@@ -26,7 +26,8 @@ const testUser = {
     email: 'justin@email.com',
     password: 'justin123',
     firstName: 'Justin',
-    driver: true
+    driver: true,
+    roles: ['admin']
 };
 
 
