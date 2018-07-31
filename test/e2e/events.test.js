@@ -22,8 +22,10 @@ const makeSimpleActivity = (activity) => {
 let token;
 let token2;
 let testEvent;
+let testEvent2;
 let testActivity1;
 let testActivity2;
+let testActivity3;
 
 const save = (path, data, token = null) => {
     return request
@@ -98,8 +100,22 @@ describe('Events API', () => {
                 item: 'Kayak'
             }],
             createdBy: testUser._id
-        }, token)
+        }, token2)
             .then(data => testEvent = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Lets go to hot springs!',
+            where: 'Hot spring place',
+            when: new Date('2018-10-10'),
+            groupSize: 5,
+            desiredGear: [{
+                item: 'Food'
+            }],
+            createdBy: testUser2._id
+        }, token)
+            .then(data => testEvent2 = data);
     });
 
     beforeEach(() => {
@@ -126,6 +142,18 @@ describe('Events API', () => {
             });
     });
 
+    beforeEach(() => {
+        return save('activities', {
+            name: 'swimming',
+            description: 'splash splash splash',
+            eventId: testEvent2._id,
+            indoor: true
+        }, token)
+            .then(data => {
+                testActivity3 = data;
+            });
+    });
+
     it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
@@ -135,7 +163,7 @@ describe('Events API', () => {
             .get('/api/events')
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [testEvent]);
+                assert.deepEqual(body, [testEvent, testEvent2]);
             });
     });
 
@@ -150,6 +178,15 @@ describe('Events API', () => {
                 assert.deepEqual(body.activities[1], makeSimpleActivity(testActivity2));
                 assert.deepEqual(body.desiredGear, testEvent.desiredGear);
                 assert.equal(body.createdBy.email, 'justin@email.com');
+            });
+    });
+
+    it('gets events by activity', () => {
+        return request
+            .get('/api/events/activity/swimming')
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, [testEvent, testEvent2]);
             });
     });
 
