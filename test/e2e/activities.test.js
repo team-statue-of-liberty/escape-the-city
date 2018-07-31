@@ -81,4 +81,20 @@ describe('Activities API', () => {
     it('saves an activity', () => {
         assert.isOk(testActivity._id);
     });
+
+    // TODO: put
+    it('updates an activity', () => {
+        testActivity.price = 'free';
+        return request
+            .put(`/api/activities/${testActivity._id}`)
+            .set('Authorization', token)
+            .then(testActivity)
+            .then(checkOk)
+            .then(({ body }) => {
+                delete body.__v;
+                assert.deepEqual(body, testActivity);
+            });
+    });
+
+    // TODO: delete 
 });
