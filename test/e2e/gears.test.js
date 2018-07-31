@@ -111,7 +111,7 @@ describe.only('Gears API', () => {
             .delete(`/api/gears/${floaty._id}`)
             .set('Authorization', token)
             .then(({ body }) => {
-                assert.deepEqual(body, {removed: true });
+                assert.deepEqual(body, { removed: true });
             });
     });
 
