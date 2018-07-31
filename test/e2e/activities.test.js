@@ -2,7 +2,7 @@ const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
 const { verify } = require('../../lib/utils/token-service');
-const { Types } = require('mongoose');
+// const { Types } = require('mongoose');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -10,6 +10,7 @@ const checkOk = res => {
 };
 
 let token;
+let testEvent;
 let testActivity;
 
 const save = (path, data, token = null) => {
@@ -28,10 +29,11 @@ const testUser = {
     driver: true
 };
 
-describe('Activities API', () => {
+describe.only('Activities API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('activities'));
+    beforeEach(() => dropCollection('events'));
 
     beforeEach(() => {
         return request
@@ -48,13 +50,32 @@ describe('Activities API', () => {
     });
 
     beforeEach(() => {
+        return save('events', {
+            description: 'fun in the sun at Lost Lake',
+            where: 'Lost Lake',
+            when: new Date(),
+            groupSize: 8,
+            desiredGear: [{
+                item: 'Cornhole'
+            },
+            {
+                item: 'Kayak'
+            }],
+            createdBy: testUser._id
+        }, token)
+            .then(data => testEvent = data);
+    });
+
+    beforeEach(() => {
         return save('activities', {
             name: 'golfing',
             description: '18-hole round',
-            eventId: Types.ObjectId(),
+            eventId: testEvent._id,
             indoor: false
         }, token)
-            .then(data => testActivity = data);
+            .then(data => {
+                testActivity = data;
+            });
     });
 
     it('saves an activity', () => {
