@@ -153,6 +153,15 @@ describe('Events API', () => {
             });
     });
 
+    it('gets events by activity', () => {
+        return request
+            .get('/api/events/activity/swimming')
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, testEvent);
+            });
+    });
+
     it('allows admins to edit posts', () => {
         testEvent.description = 'ultra super duper fun';
         return request
