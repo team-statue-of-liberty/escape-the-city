@@ -55,7 +55,7 @@ describe('Activities API', () => {
             indoor: false
         }, token)
             .then(data => testActivity = data);
-    })
+    });
 
     it('saves an activity', () => {
         assert.isOk(testActivity._id);
