@@ -60,7 +60,7 @@ describe('Activities API', () => {
             {
                 item: 'Kayak'
             }],
-            createdBy: testUser._id
+            ownerId: testUser._id
         }, token)
             .then(data => testEvent = data);
     });

@@ -18,7 +18,7 @@ describe('Events model', () => {
             {
                 item: 'Kayak'
             }],
-            createdBy: Types.ObjectId()
+            ownerId: Types.ObjectId()
         };
         const event = new Event(data);
 
@@ -36,7 +36,7 @@ describe('Events model', () => {
         assert.equal(errors.where.kind, 'required');
         assert.equal(errors.when.kind, 'required');
         assert.equal(errors['desiredGear.0.item'].kind, 'required');
-        assert.equal(errors.createdBy.kind, 'required');
+        assert.equal(errors.ownerId.kind, 'required');
     });
 
     it('does not accept invalid min values', () => {
@@ -51,7 +51,7 @@ describe('Events model', () => {
             {
                 item: 'Kayak'
             }],
-            createdBy: Types.ObjectId()
+            ownerId: Types.ObjectId()
         });
         const errors = getErrors(event.validateSync(), 1);
         assert.equal(errors.groupSize.kind, 'min');
