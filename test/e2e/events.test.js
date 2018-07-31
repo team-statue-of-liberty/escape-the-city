@@ -151,6 +151,7 @@ describe.only('Events API', () => {
                 assert.equal(body.description, testEvent.description);
             });
     });
+
     it('does not allow non-admins to edit posts', () => {
         testEvent.description = 'THE BEST EVER';
         return request
@@ -160,6 +161,15 @@ describe.only('Events API', () => {
             .then(({ body }) => {
                 assert.equal(body.error, 'Must be an admin to do that');
                 assert.notEqual(body.description, testEvent.description);
+            });
+    });
+
+    it('allows admins to delete events', () => {
+        return request
+            .delete(`/api/events/${testEvent._id}`)
+            .set('Authorization', token)
+            .then(({ body }) => {
+                assert.deepEqual(body, { removed: true });
             });
     });
 });
