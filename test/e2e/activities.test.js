@@ -29,7 +29,7 @@ const testUser = {
     driver: true
 };
 
-describe.only('Activities API', () => {
+describe('Activities API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('activities'));

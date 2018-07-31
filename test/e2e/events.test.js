@@ -29,7 +29,7 @@ const testUser = {
 };
 
 
-describe('Events API', () => {
+describe.only('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
@@ -67,6 +67,15 @@ describe('Events API', () => {
 
     it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
+    });
+
+    it('gets all events at once', () => {
+        return request
+            .get('/api/events')
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, [testEvent]);
+            });
     });
 
 });
