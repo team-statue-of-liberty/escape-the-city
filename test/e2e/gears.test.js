@@ -45,7 +45,7 @@ const testUser = {
 describe('Gears API', () => {
 
     beforeEach(() => dropCollection('users'));
-    // beforeEach(() => dropCollection('gears'));
+    beforeEach(() => dropCollection('gears'));
 
     beforeEach(() => {
         return request  
@@ -81,7 +81,7 @@ describe('Gears API', () => {
             .then(data => floaty = data);
     });
 
-    it.only('saves a gear item', () => {
+    it('saves a gear item', () => {
         assert.isDefined(floaty);
     });
 
