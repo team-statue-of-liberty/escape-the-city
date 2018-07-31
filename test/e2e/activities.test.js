@@ -2,7 +2,6 @@ const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
 const { verify } = require('../../lib/utils/token-service');
-// const { Types } = require('mongoose');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -75,6 +74,7 @@ describe('Activities API', () => {
         }, token)
             .then(data => {
                 testActivity = data;
+                delete testActivity.__v;
             });
     });
 
@@ -83,12 +83,12 @@ describe('Activities API', () => {
     });
 
     // TODO: put
-    it('updates an activity', () => {
-        testActivity.price = 'free';
+    it.only('updates an activity', () => {
+        testActivity.name = 'Putt putt';
         return request
             .put(`/api/activities/${testActivity._id}`)
             .set('Authorization', token)
-            .then(testActivity)
+            .send(testActivity)
             .then(checkOk)
             .then(({ body }) => {
                 delete body.__v;
