@@ -78,4 +78,12 @@ describe.only('Events API', () => {
             });
     });
 
+    it('gets one event by id', () => {
+        return request
+            .get(`/api/events/${testEvent._id}`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, testEvent);
+            });
+    });
 });
