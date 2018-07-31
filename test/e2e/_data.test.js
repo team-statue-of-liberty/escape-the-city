@@ -7,7 +7,7 @@ const gearsDataFile = join(__dirname, '../../lib/data/gears-data.json');
 const eventsDataFile = join(__dirname, '../../lib/data/events-data.json');
 const activitiesDataFile = join(__dirname, '../../lib/data/activities-data.json');
 
-describe('seed data', () => {
+describe.skip('seed data', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('gears'));
