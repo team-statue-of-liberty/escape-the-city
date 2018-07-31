@@ -78,12 +78,11 @@ describe('Activities API', () => {
             });
     });
 
-    it('saves an activity', () => {
+    it('saves an activity on POST', () => {
         assert.isOk(testActivity._id);
     });
 
-    // TODO: put
-    it.only('updates an activity', () => {
+    it('updates an activity on PUT', () => {
         testActivity.name = 'Putt putt';
         return request
             .put(`/api/activities/${testActivity._id}`)
@@ -97,4 +96,13 @@ describe('Activities API', () => {
     });
 
     // TODO: delete 
+    it.only('removes an activity on DELETE', () => {
+        return request 
+            .delete(`/api/activities/${testActivity._id}`)
+            .set('Authorization', token)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.isTrue(body.removed);
+            });
+    });
 });
