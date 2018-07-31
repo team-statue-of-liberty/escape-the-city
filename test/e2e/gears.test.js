@@ -90,8 +90,19 @@ describe.only('Gears API', () => {
             .get(`/api/gears/${testUser._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [makeSimpleGear(hammock), makeSimpleGear(floaty)]);
-                
+                assert.deepEqual(body, [makeSimpleGear(hammock), makeSimpleGear(floaty)]);   
+            });
+    });
+
+    it('allows user to edit gear items', () => {
+        floaty.description = 'giant donut';
+        return request
+            .put(`/api/gears/${floaty._id}`)
+            .set('Authorization', token)
+            .send(floaty)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.equal(body.description, floaty.description);
             });
     });
 
