@@ -2,7 +2,6 @@ const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
 const { verify } = require('../../lib/utils/token-service');
-// const { Types } = require('mongoose');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
@@ -75,10 +74,34 @@ describe('Activities API', () => {
         }, token)
             .then(data => {
                 testActivity = data;
+                delete testActivity.__v;
             });
     });
 
-    it('saves an activity', () => {
+    it('saves an activity on POST', () => {
         assert.isOk(testActivity._id);
+    });
+
+    it('updates an activity on PUT', () => {
+        testActivity.name = 'Putt putt';
+        return request
+            .put(`/api/activities/${testActivity._id}`)
+            .set('Authorization', token)
+            .send(testActivity)
+            .then(checkOk)
+            .then(({ body }) => {
+                delete body.__v;
+                assert.deepEqual(body, testActivity);
+            });
+    });
+
+    it('removes an activity on DELETE', () => {
+        return request 
+            .delete(`/api/activities/${testActivity._id}`)
+            .set('Authorization', token)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.isTrue(body.removed);
+            });
     });
 });
