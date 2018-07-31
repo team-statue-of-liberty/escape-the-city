@@ -15,7 +15,7 @@ const makeSimpleGear = (gear) => {
         item: gear.item,
         description: gear.description,
         quantity: gear.quantity,
-        ownerId: gear.user
+        ownerId: gear.ownerId
     };
 
     return makeSimple;
@@ -111,7 +111,7 @@ describe('Gears API', () => {
             .delete(`/api/gears/${floaty._id}`)
             .set('Authorization', token)
             .then(({ body }) => {
-                assert.deepEqual(body, {removed: true });
+                assert.deepEqual(body, { removed: true });
             });
     });
 
