@@ -1,0 +1,12 @@
+{
+    "description": "String",
+    "where": "",
+    "when": Date,
+    "groupSize": 2,
+    "desiredGear": [
+        {
+            "item": ""
+        }
+    ],
+    "ownerId": ""
+}

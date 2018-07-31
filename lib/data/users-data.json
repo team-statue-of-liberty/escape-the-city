@@ -1,0 +1,142 @@
+[
+    {
+    "email": "hello@test.com",
+    "firstName": "Bob",
+    "driver": false,
+    "password": "pass123",
+    "role": []
+    },
+    {
+        "email": "andrew@test.com",
+        "firstName": "Andrew",
+        "driver": true,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Bob@test.com",
+        "firstName": "Bobby",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Antreo@test.com",
+        "firstName": "Antreo",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Arthur@test.com",
+        "firstName": "Arthur",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Carrie@test.com",
+        "firstName": "Carrie",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Kevin@test.com",
+        "firstName": "Kevin",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Mariah@test.com",
+        "firstName": "Mariah",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Mark@test.com",
+        "firstName": "Mark",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Sarah@test.com",
+        "firstName": "Sarah",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Robert@test.com",
+        "firstName": "Robert",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Ryan@test.com",
+        "firstName": "Ryan",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Robyn@test.com",
+        "firstName": "Robyn",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Brian@test.com",
+        "firstName": "Brian",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Carmen@test.com",
+        "firstName": "Carmen",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Easton@test.com",
+        "firstName": "Easton",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Injoong@test.com",
+        "firstName": "Injoong",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Mario@test.com",
+        "firstName": "Mario",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Marty@test.com",
+        "firstName": "Marty",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    },
+    {
+        "email": "Megan@test.com",
+        "firstName": "Megan",
+        "driver": false,
+        "password": "pass123",
+        "role": []
+    }
+]

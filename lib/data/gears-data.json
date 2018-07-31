@@ -1,0 +1,146 @@
+[
+    {
+        "item": "kayak",
+        "description": "sea kayak, seats 1, excellent condition",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "bike",
+        "description": "mountain bike",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "golf clubs",
+        "description": "full set, men's clubs",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "roller blades",
+        "description": "women's roller blades",
+        "quantity": 2,
+        "ownerId": ""
+    },
+    {
+        "item": "floaty",
+        "description": "pool toys",
+        "quantity": 10,
+        "ownerId": ""
+    },
+    {
+        "item": "frisbee",
+        "description": "Wham-o brand frisbees",
+        "quantity": 2,
+        "ownerId": ""
+    },
+    {
+        "item": "tent",
+        "description": "Coleman tent, sleeps 8",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "river raft",
+        "description": "seats 4",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "cornhole",
+        "description": "MICHIGAN vs OHIO ST cornhole",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "portable bluetooth speaker",
+        "description": "let's jam!!!!!!!",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "Coleman cooler",
+        "description": "150qt, green, now that's cold",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "collapsible java drip",
+        "description": "have coffee, will travel",
+        "quantity": 3,
+        "ownerId": ""
+    },
+    {
+        "item": "S'more sticks",
+        "description": "you're killing me, Smalls",
+        "quantity": 15,
+        "ownerId": ""
+    },
+    {
+        "item": "firewood",
+        "description": "20 bundles",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "lawn darts",
+        "description": "deadly fun",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "beach volleyball",
+        "description": "no net required",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "ultralight camp cook set",
+        "description": "perfect for backpacking",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "disc golf tournament set",
+        "description": "discs only",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "camp chairs",
+        "description": "foldable",
+        "quantity": 4,
+        "ownerId": ""
+    },
+    {
+        "item": "sleeping bags",
+        "description": "adult mummy bags",
+        "quantity": 2,
+        "ownerId": ""
+    },
+    {
+        "item": "hammock",
+        "description": "DoubleNest Hammock",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "card table",
+        "description": "compact table, rolls up for travel",
+        "quantity": 1,
+        "ownerId": ""
+    },
+    {
+        "item": "lanterns",
+        "description": "need batteries",
+        "quantity": 2,
+        "ownerId": ""
+    },
+    {
+        "item": "slackline",
+        "description": "74ft, strength 40kN",
+        "quantity": 1,
+        "ownerId": ""
+    }
+]
