@@ -104,7 +104,7 @@ describe.only('Events API', () => {
             });
     });
 
-    it('gets one event by id, popoulating with correct data', () => {
+    it('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
