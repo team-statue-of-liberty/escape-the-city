@@ -55,7 +55,7 @@ const testUser2 = {
 };
 
 
-describe.only('Events API', () => {
+describe('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
@@ -83,7 +83,10 @@ describe.only('Events API', () => {
             quantity: 1,
             user: testUser2._id
         }, token) 
-            .then(data => hammock = data);
+            .then(data => {
+                hammock = data;
+                assert.equal(hammock, data);
+            });
     });
 
     beforeEach(() => {
@@ -93,7 +96,10 @@ describe.only('Events API', () => {
             quantity: 3,
             user: testUser._id
         }, token) 
-            .then(data => floaty = data);
+            .then(data => {
+                floaty = data;
+                assert.equal(floaty, data);
+            });
     });
 
     beforeEach(() => {
@@ -205,7 +211,7 @@ describe.only('Events API', () => {
             });
     });
 
-    it.only('gets events by gear', () => {
+    it('gets events by gear', () => {
         return request
             .get(`/api/events/match/${testUser2._id}`)
             .then(checkOk)

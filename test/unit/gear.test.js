@@ -11,7 +11,7 @@ describe('Gear API', () => {
             item: 'Grill',
             description: 'coleman 2 burner propane',
             quantity: 1,
-            user: Types.ObjectId()     
+            ownerId: Types.ObjectId()     
         };
         const gear = new GearModel(data);
 
