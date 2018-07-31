@@ -210,7 +210,7 @@ describe.only('Events API', () => {
             .get(`/api/events/match/${testUser2._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, testEvent);
+                assert.deepEqual(body, [testEvent]);
             });
     });
 
