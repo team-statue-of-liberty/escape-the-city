@@ -8,6 +8,17 @@ const checkOk = res => {
     return res;
 };
 
+const makeSimpleActivity = (activity) => {
+    const simple = {
+        _id: activity._id,
+        name: activity.name,
+        description: activity.description,
+        indoor: activity.indoor
+    };
+
+    return simple;
+};
+
 let token;
 let token2;
 let testEvent;
@@ -40,7 +51,7 @@ const testUser2 = {
 };
 
 
-describe.only('Events API', () => {
+describe('Events API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
@@ -135,6 +146,8 @@ describe.only('Events API', () => {
             .then(({ body }) => {
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
+                assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
+                assert.deepEqual(body.activities[1], makeSimpleActivity(testActivity2));
                 assert.deepEqual(body.desiredGear, testEvent.desiredGear);
                 assert.equal(body.createdBy.email, 'justin@email.com');
             });
