@@ -9,6 +9,7 @@ const checkOk = res => {
 };
 
 let token;
+let token2;
 let testEvent;
 let testActivity1;
 let testActivity2;
@@ -30,6 +31,14 @@ const testUser = {
     roles: ['admin']
 };
 
+const testUser2 = {
+    email: 'bobby@email.com',
+    password: 'secretPASS',
+    firstName: 'Bobby',
+    driver: false,
+    roles: ['user']
+};
+
 
 describe.only('Events API', () => {
 
@@ -47,6 +56,20 @@ describe.only('Events API', () => {
                 verify(token)
                     .then((body) => {
                         testUser._id = body.id;
+                    });
+            });
+    });
+
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send(testUser2)
+            .then(checkOk)
+            .then(({ body }) => {
+                token2 = body.token;
+                verify(token2)
+                    .then((body) => {
+                        testUser2._id = body.id;
                     });
             });
     });
@@ -126,6 +149,17 @@ describe.only('Events API', () => {
             .then(checkOk)
             .then(({ body }) => {
                 assert.equal(body.description, testEvent.description);
+            });
+    });
+    it('does not allow non-admins to edit posts', () => {
+        testEvent.description = 'THE BEST EVER';
+        return request
+            .put(`/api/events/${testEvent._id}`)
+            .set('Authorization', token2)
+            .send(testEvent)
+            .then(({ body }) => {
+                assert.equal(body.error, 'Must be an admin to do that');
+                assert.notEqual(body.description, testEvent.description);
             });
     });
 });
