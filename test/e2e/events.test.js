@@ -151,6 +151,7 @@ describe('Events API', () => {
         }, token)
             .then(data => {
                 testActivity3 = data;
+                assert.equal(testActivity3.name, 'swimming');
             });
     });
 
@@ -163,7 +164,7 @@ describe('Events API', () => {
             .get('/api/events')
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [testEvent, testEvent2]);
+                assert.deepEqual(body, [testEvent2, testEvent]);
             });
     });
 
