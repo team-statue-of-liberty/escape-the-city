@@ -99,7 +99,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
-            createdBy: testUser._id
+            ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
     });
@@ -113,7 +113,7 @@ describe('Events API', () => {
             desiredGear: [{
                 item: 'Food'
             }],
-            createdBy: testUser2._id
+            ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
     });
@@ -178,7 +178,7 @@ describe('Events API', () => {
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
                 assert.deepEqual(body.activities[1], makeSimpleActivity(testActivity2));
                 assert.deepEqual(body.desiredGear, testEvent.desiredGear);
-                assert.equal(body.createdBy.email, 'justin@email.com');
+                assert.equal(body.ownerId.email, 'justin@email.com');
             });
     });
 
