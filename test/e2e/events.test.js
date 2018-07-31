@@ -191,7 +191,7 @@ describe('Events API', () => {
             });
     });
 
-    it.only('allows admins to edit posts', () => {
+    it('allows admins to edit posts', () => {
         testEvent.description = 'ultra super duper fun';
         return request
             .put(`/api/events/${testEvent._id}`)

@@ -15,7 +15,7 @@ const makeSimpleGear = (gear) => {
         item: gear.item,
         description: gear.description,
         quantity: gear.quantity,
-        user: gear.user
+        ownerId: gear.user
     };
 
     return makeSimple;
@@ -42,7 +42,7 @@ const testUser = {
     driver: true
 };
 
-describe.only('Gears API', () => {
+describe('Gears API', () => {
 
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('gears'));
@@ -66,7 +66,7 @@ describe.only('Gears API', () => {
             item: 'hammock',
             description: 'Eno Double Nest 300lb capacity',
             quantity: 1,
-            user: testUser._id
+            ownerId: testUser._id
         }, token) 
             .then(data => hammock = data);
     });
@@ -76,7 +76,7 @@ describe.only('Gears API', () => {
             item: 'floaty',
             description: 'unicorn',
             quantity: 3,
-            user: testUser._id
+            ownerId: testUser._id
         }, token) 
             .then(data => floaty = data);
     });
