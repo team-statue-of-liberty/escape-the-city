@@ -364,7 +364,7 @@ describe('Users API', () => {
     });
 
     /* ************TESTS************ */
-    it.only('signs up the user', () => {
+    it('signs up the user', () => {
         assert.isDefined(token);
     });
 
