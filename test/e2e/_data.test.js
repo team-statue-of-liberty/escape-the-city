@@ -26,4 +26,8 @@ describe.skip('seed data', () => {
     // mongoexport --db escape --collection gears --out gears-data.json
     // mongoexport --db escape --collection activities --out activities-data.json
     // mongoexport --db escape --collection events --out events-data.json
+
+    it('seeds data', () => {
+
+    });
 });
