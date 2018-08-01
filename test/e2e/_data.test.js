@@ -14,12 +14,11 @@ describe.skip('seed data', () => {
     beforeEach(() => dropCollection('activities'));
     beforeEach(() => dropCollection('events'));
 
-    //run ONE AT A TIME
     beforeEach(() => {
         execSync(`mongoimport --db ${mongoose.connection.name} --collection users --drop --file ${usersDataFile}`);
-        // execSync(`mongoimport --db ${mongoose.connection.name} --collection gears --drop --file ${gearsDataFile}`);
-        // execSync(`mongoimport --db ${mongoose.connection.name} --collection events --drop --file ${eventsDataFile}`);
-        // execSync(`mongoimport --db ${mongoose.connection.name} --collection activities --drop --file ${activitiesDataFile}`);
+        execSync(`mongoimport --db ${mongoose.connection.name} --collection gears --drop --file ${gearsDataFile}`);
+        execSync(`mongoimport --db ${mongoose.connection.name} --collection events --drop --file ${eventsDataFile}`);
+        execSync(`mongoimport --db ${mongoose.connection.name} --collection activities --drop --file ${activitiesDataFile}`);
     })
 
     // TERMINAL commands to take seed data and export back to json data files (to keep same ObjectId)
@@ -27,4 +26,8 @@ describe.skip('seed data', () => {
     // mongoexport --db escape --collection gears --out gears-data.json
     // mongoexport --db escape --collection activities --out activities-data.json
     // mongoexport --db escape --collection events --out events-data.json
+
+    it('seeds data', () => {
+
+    });
 });

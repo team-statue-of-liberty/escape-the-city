@@ -18,8 +18,4 @@
 {"_id":{"$oid":"5b61f5554d2c720a307de062"},"roles":[],"email":"carmen334@test.com","firstName":"Carmen","driver":true,"hash":"$2a$08$2Lxf3Z5QA1sM.hjbdnpb2Of8yTpJZMGLNzUQcKdHebSaR87E89qC2","__v":0}
 {"_id":{"$oid":"5b61f5554d2c720a307de063"},"roles":[],"email":"hen314@test.com","firstName":"Injoong","driver":true,"hash":"$2a$08$1G4ra7oYbE5GcalJaTVMAO4CoC5ZWkJJJVwyO2IXjGnXKmf04mQWS","__v":0}
 {"_id":{"$oid":"5b61f5554d2c720a307de064"},"roles":[],"email":"mario345@test.com","firstName":"Mario","driver":true,"hash":"$2a$08$Pudg.z2SNpcRlJmh52yBIulYVxPAebxhke94hlVFTdeDlnackKRJW","__v":0}
-// {"_id":{"$oid":"5b61f5554d2c720a307de065"},"roles":[],"email":"bobby45354@test.com","firstName":"Robert","driver":true,"hash":"$2a$08$roeGJp2eLfNFrRBl7sx7rO4vi0xHjYfgo5FE.6As8aRaNqsnPPNZe","__v":0}
-// {"_id":{"$oid":"5b61f5554d2c720a307de066"},"roles":[],"email":"ryanL345@test.com","firstName":"RyanL","driver":true,"hash":"$2a$08$cMB0ihdwQdNZJVTnu2gYRuLj1ZClgaHwpqS/VWxqatk9AC6RFAgXa","__v":0}
-// {"_id":{"$oid":"5b61f5554d2c720a307de067"},"roles":[],"email":"marty34@test.com","firstName":"Marty","driver":true,"hash":"$2a$08$cre37WOuYvpFPGXPQzJr2ei4scJMk3yYhJNXRZYeHQ0tsx03ZPAiK","__v":0}
-// {"_id":{"$oid":"5b61f5554d2c720a307de068"},"roles":[],"email":"elizabeth3453@test.com","firstName":"Elizabeth","driver":true,"hash":"$2a$08$eK6KcT364eMnixBRV4H.W.ct.ABqJFYiB5tnF1480H/oDe8Rkw4KS","__v":0}
-// {"_id":{"$oid":"5b61f5554d2c720a307de069"},"roles":[],"email":"tasha345@test.com","firstName":"Tasha","driver":true,"hash":"$2a$08$LrBML8JQ9ABsNBhdVqWJqujKS5OdeB1QqHVNXADqHXp2wjoMx99HG","__v":0}
+
