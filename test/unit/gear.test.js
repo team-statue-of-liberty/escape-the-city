@@ -23,7 +23,7 @@ describe('Gear API', () => {
     
     it('validates required fields', () => {
         const gear = new GearModel({});
-        const errors = getErrors(gear.validateSync(), 2);
+        const errors = getErrors(gear.validateSync(), 3);
         assert.equal(errors.item.kind, 'required');
         assert.equal(errors.description.kind, 'required');  
     });

@@ -64,7 +64,7 @@ describe('Events API', () => {
 
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send(testUser)
             .then(checkOk)
             .then(({ body }) => {
@@ -78,7 +78,7 @@ describe('Events API', () => {
 
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send(testUser2)
             .then(checkOk)
             .then(({ body }) => {

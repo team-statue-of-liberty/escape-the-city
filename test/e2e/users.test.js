@@ -1,99 +1,36 @@
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
+const { verify } = require('../../lib/utils/token-service');
 
 const checkOk = res => {
     assert.equal(res.status, 200, 'expected 200 http status code');
     return res;
 };
 
+let token;
+const user = {
+    email: 'Chris@test.com',
+    firstName: 'Chris',
+    driver: false,
+    password: 'pass123'
+};
+
 describe('Users API', () => {
-
+    
     beforeEach(() => dropCollection('users'));
-
-    let token;
+    
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'justice192@test.com',
-                firstName: 'Justice',
-                driver: false,
-                password: 'pass123'
-            })
+            .post('/api/auth/signup')
+            .send(user)
             .then(checkOk)
             .then(({ body }) => {
                 token = body.token;
-            });
-    });
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'carter9@test.com',
-                firstName: 'Carter',
-                driver: false,
-                password: 'pass123'
-            })
-            .then(checkOk)
-            .then(({ body }) => {
-                token = body.token;
-            });
-    });
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'journey2934@test.com',
-                firstName: 'Journey',
-                driver: false,
-                password: 'pass123'
-            })
-            .then(checkOk)
-            .then(({ body }) => {
-                token = body.token;
-            });
-    });
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'lewis239@test.com',
-                firstName: 'Lewis',
-                driver: false,
-                password: 'pass123'
-            })
-            .then(checkOk)
-            .then(({ body }) => {
-                token = body.token;
-            });
-    });
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'sue23439@test.com',
-                firstName: 'Sue',
-                driver: true,
-                password: 'pass123'
-            })
-            .then(checkOk)
-            .then(({ body }) => {
-                token = body.token;
-            });
-    });
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send({
-                email: 'joe49@test.com',
-                firstName: 'Joe',
-                driver: true,
-                password: 'pass123'
-            })
-            .then(checkOk)
-            .then(({ body }) => {
-                token = body.token;
+                verify(token)
+                    .then((body) => {
+                        user._id = body.id;
+                    });
             });
     });
     beforeEach(() => {
@@ -368,23 +305,17 @@ describe('Users API', () => {
         assert.isDefined(token);
     });
 
-    it('signs in a user', () => {
+    it('allows user to update their profile', () => {
+        user.driver = true;
         return request
-            .post('/api/users/signin')
-            .send({
-                email: 'joe4@test.com',
-                password: 'pass123'
-            })
+            .put(`/api/users/${user._id}`)
+            .set('Authorization', token)
+            .send(user)
             .then(checkOk)
             .then(({ body }) => {
-                assert.isDefined(body.token);
+                assert.equal(body.driver, true);
             });
     });
 
-    it('verifies a token', () => {
-        return request
-            .get('/api/users/verify')
-            .set('Authorization', token)
-            .then(checkOk);
-    });
 });
+
