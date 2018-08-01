@@ -265,7 +265,7 @@ describe('Events API', () => {
             });
     });
 
-    it.skip('allows users to delete events', () => {
+    it.only('allows users to delete events', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token)
