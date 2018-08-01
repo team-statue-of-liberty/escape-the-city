@@ -1,12 +1,8 @@
-{
-    "description": "String",
-    "where": "",
-    "when": Date,
-    "groupSize": 2,
-    "desiredGear": [
-        {
-            "item": ""
-        }
-    ],
-    "ownerId": ""
-}
+{"_id":{"$oid":"5b60dca256b9c0e182c682e0"},"description":"birthday at Detroit Lake","where":"Detroit Lake","when":{"$date":"2018-07-31T22:03:14.756Z"},"groupSize":10,"desiredGear":[{"_id":{"$oid":"5b60dca256b9c0e182c682e2"},"item":"floaty"},{"_id":{"$oid":"5b60dca256b9c0e182c682e1"},"item":"life jacket"}],"ownerId":{"$oid":"5b60dca056b9c0e182c68286"},"__v":0}
+{"_id":{"$oid":"5b60dca256b9c0e182c682e3"},"description":"Eastern Oregon Desert Trek","where":"Alvord Desert playa","when":{"$date":"2018-10-10T00:00:00.000Z"},"groupSize":4,"desiredGear":[{"_id":{"$oid":"5b60dca256b9c0e182c682e4"},"item":"gas can"}],"ownerId":{"$oid":"5b60dca056b9c0e182c68289"},"__v":0}
+{"_id":{"$oid":"5b60ee52b481d3e40f410289"},"description":"fun in the sun at Lost Lake","where":"Lost Lake","when":{"$date":"2018-07-31T23:18:42.603Z"},"groupSize":8,"desiredGear":[{"_id":{"$oid":"5b60ee52b481d3e40f41028b"},"item":"hammock"},{"_id":{"$oid":"5b60ee52b481d3e40f41028a"},"item":"Kayak"}],"ownerId":{"$oid":"5b60ee52b481d3e40f410285"},"__v":0}
+{"_id":{"$oid":"5b60ee52b481d3e40f41028c"},"description":"Jennings Hotel retreat in Joseph","where":"Joseph Oregon","when":{"$date":"2018-10-10T00:00:00.000Z"},"groupSize":8,"desiredGear":[{"_id":{"$oid":"5b60ee52b481d3e40f41028d"},"item":"portable speaker"}],"ownerId":{"$oid":"5b60ee52b481d3e40f410288"},"__v":0}
+{"_id":{"$oid":"5b60f1209052e3e4ae2a8be5"},"description":"SUP on the John Day River","where":"John Day River, the Dalles","when":{"$date":"2018-07-31T23:30:40.725Z"},"groupSize":4,"desiredGear":[{"_id":{"$oid":"5b60f1209052e3e4ae2a8be7"},"item":"SUP"},{"_id":{"$oid":"5b60f1209052e3e4ae2a8be6"},"item":"life jackets"}],"ownerId":{"$oid":"5b60f1209052e3e4ae2a8be1"},"__v":0}
+{"_id":{"$oid":"5b60f1209052e3e4ae2a8be8"},"description":"Meteor Shower Viewing on Mt.Hood","where":"Mt.Hood","when":{"$date":"2018-10-10T00:00:00.000Z"},"groupSize":4,"desiredGear":[{"_id":{"$oid":"5b60f1209052e3e4ae2a8be9"},"item":"sleeping bag"}],"ownerId":{"$oid":"5b60f1209052e3e4ae2a8be4"},"__v":0}
+{"_id":{"$oid":"5b60f13ae869b7e4b5681fde"},"description":"Oswald West Surf Trip","where":"Oswald West State Park","when":{"$date":"2018-07-31T23:31:06.033Z"},"groupSize":12,"desiredGear":[{"_id":{"$oid":"5b60f13ae869b7e4b5681fe0"},"item":"cooler"},{"_id":{"$oid":"5b60f13ae869b7e4b5681fdf"},"item":"wetsuit"}],"ownerId":{"$oid":"5b60f139e869b7e4b5681fda"},"__v":0}
+{"_id":{"$oid":"5b60f13ae869b7e4b5681fe1"},"description":"Smith Rock Climbing Trip","where":"Smith Rock","when":{"$date":"2018-10-10T00:00:00.000Z"},"groupSize":6,"desiredGear":[{"_id":{"$oid":"5b60f13ae869b7e4b5681fe2"},"item":"slackline"}],"ownerId":{"$oid":"5b60f13ae869b7e4b5681fdd"},"__v":0}

@@ -16,9 +16,79 @@ describe('Users API', () => {
         return request  
             .post('/api/users/signup')
             .send({
-                email: 'hello@test.com',
-                firstName: 'Bob',
+                email: 'justice@test.com',
+                firstName: 'Justice',
                 driver: false,
+                password: 'pass123'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                token = body.token;
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send({
+                email: 'carrie@test.com',
+                firstName: 'Carrie',
+                driver: false,
+                password: 'pass123'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                token = body.token;
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send({
+                email: 'journey@test.com',
+                firstName: 'Journey',
+                driver: false,
+                password: 'pass123'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                token = body.token;
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send({
+                email: 'lewis@test.com',
+                firstName: 'Lewis',
+                driver: false,
+                password: 'pass123'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                token = body.token;
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send({
+                email: 'sue@test.com',
+                firstName: 'Sue',
+                driver: true,
+                password: 'pass123'
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                token = body.token;
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/users/signup')
+            .send({
+                email: 'joe@test.com',
+                firstName: 'Joe',
+                driver: true,
                 password: 'pass123'
             })
             .then(checkOk)
@@ -35,7 +105,7 @@ describe('Users API', () => {
         return request
             .post('/api/users/signin')
             .send({
-                email: 'hello@test.com',
+                email: 'hello3@test.com',
                 password: 'pass123'
             })
             .then(checkOk)
