@@ -97,7 +97,7 @@ describe('Users API', () => {
             });
     });
 
-    it.only('signs up the user', () => {
+    it('signs up the user', () => {
         assert.isDefined(token);
     });
 
