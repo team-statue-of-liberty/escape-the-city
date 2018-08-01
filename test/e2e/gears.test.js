@@ -1,7 +1,6 @@
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
-// const { Types } = require('mongoose');
 const { verify } = require('../../lib/utils/token-service');
 
 const checkOk = res => {
