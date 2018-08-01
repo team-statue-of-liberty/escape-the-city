@@ -261,15 +261,14 @@ describe('Events API', () => {
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token2)
             .then(({ body }) => {
-                assert.deepEqual(body.error, 'Invalid user');
+                assert.deepEqual(body, { removed: false });
             });
     });
 
-    it.only('allows users to delete events', () => {
+    it('allows users to delete events', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token)
-            .send(testEvent)
             .then(({ body }) => {
                 assert.deepEqual(body, { removed: true });
             });
