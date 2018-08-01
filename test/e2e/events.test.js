@@ -64,7 +64,7 @@ describe('Events API', () => {
 
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send(testUser)
             .then(checkOk)
             .then(({ body }) => {
@@ -77,11 +77,25 @@ describe('Events API', () => {
     });
 
     beforeEach(() => {
+        return request  
+            .post('/api/auth/signup')
+            .send(testUser2)
+            .then(checkOk)
+            .then(({ body }) => {
+                token2 = body.token;
+                verify(token2)
+                    .then((body) => {
+                        testUser2._id = body.id;
+                    });
+            });
+    });
+
+    beforeEach(() => {
         return save('gears', {
             item: 'hammock',
             description: 'Eno Double Nest 300lb capacity',
             quantity: 1,
-            user: testUser2._id
+            ownerId: testUser2._id
         }, token) 
             .then(data => {
                 hammock = data;
@@ -94,7 +108,7 @@ describe('Events API', () => {
             item: 'floaty',
             description: 'unicorn',
             quantity: 3,
-            user: testUser._id
+            ownerId: testUser._id
         }, token) 
             .then(data => {
                 floaty = data;
@@ -102,19 +116,6 @@ describe('Events API', () => {
             });
     });
 
-    beforeEach(() => {
-        return request  
-            .post('/api/users/signup')
-            .send(testUser2)
-            .then(checkOk)
-            .then(({ body }) => {
-                token2 = body.token;
-                verify(token2)
-                    .then((body) => {
-                        testUser2._id = body.id;
-                    });
-            });
-    });
 
     beforeEach(() => {
         return save('events', {
@@ -202,6 +203,7 @@ describe('Events API', () => {
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
+                assert.isDefined(body.invitees);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
@@ -229,7 +231,7 @@ describe('Events API', () => {
             });
     });
 
-    it('allows admins to edit posts', () => {
+    it('allows users to edit own posts', () => {
         testEvent.description = 'ultra super duper fun';
         return request
             .put(`/api/events/${testEvent._id}`)
@@ -241,25 +243,34 @@ describe('Events API', () => {
             });
     });
 
-    it('does not allow non-admins to edit posts', () => {
+    it('does not allow the non user to edit posts', () => {
         testEvent.description = 'THE BEST EVER';
         return request
             .put(`/api/events/${testEvent._id}`)
             .set('Authorization', token2)
             .send(testEvent)
             .then(({ body }) => {
-                assert.equal(body.error, 'Must be an admin to do that');
+                assert.equal(body.error, 'Invalid user');
                 assert.notEqual(body.description, testEvent.description);
             });
     });
 
     //discuss with group about delete functionality and how it should work
-    it('will not delete if there are activities associated with event', () => {
+    it('will not delete if user did not create the event', () => {
+        return request
+            .delete(`/api/events/${testEvent._id}`)
+            .set('Authorization', token2)
+            .then(({ body }) => {
+                assert.deepEqual(body, { removed: false });
+            });
+    });
+
+    it('allows users to delete events', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token)
             .then(({ body }) => {
-                assert.deepEqual(body, { removed: false });
+                assert.deepEqual(body, { removed: true });
             });
     });
 

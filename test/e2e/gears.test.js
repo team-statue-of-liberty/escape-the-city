@@ -1,7 +1,6 @@
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./_db');
-// const { Types } = require('mongoose');
 const { verify } = require('../../lib/utils/token-service');
 
 const checkOk = res => {
@@ -49,7 +48,7 @@ describe('Gears API', () => {
 
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send(testUser)
             .then(checkOk)
             .then(({ body }) => {
@@ -114,6 +113,4 @@ describe('Gears API', () => {
                 assert.deepEqual(body, { removed: true });
             });
     });
-
-
 });
