@@ -21,6 +21,8 @@ describe.skip('seed data', () => {
         execSync(`mongoimport --db ${mongoose.connection.name} --collection activities --drop --file ${activitiesDataFile}`);
     })
 
+    mongodb://heroku_8mlsd1qr:43nc0hm56o5gjiq8s2e17k4b8a@ds159661.mlab.com:59661/heroku_8mlsd1qr
+
     // TERMINAL commands to take seed data and export back to json data files (to keep same ObjectId)
     // mongoexport --db escape --collection users --out users-data.json
     // mongoexport --db escape --collection gears --out gears-data.json
