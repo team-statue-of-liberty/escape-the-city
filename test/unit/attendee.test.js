@@ -2,7 +2,7 @@ const chai = require('chai');
 const { assert } = chai;
 const { Types } = require('mongoose');
 const Attendee = require('../../lib/models/attendee');
-// const { getErrors } = require('./helpers');
+const { getErrors } = require('./helpers');
 
 describe.only('Attendee model', () => {
 
@@ -17,5 +17,12 @@ describe.only('Attendee model', () => {
         delete json._id;
         assert.deepEqual(json, data);
         assert.isUndefined(attendee.validateSync());
+    });
+
+    it('validates required field', () => {
+        const attendee = new Attendee({});
+        const errors = getErrors(attendee.validateSync(), 1);
+    
+        assert.equal(errors.eventId.kind, 'required');
     });
 });
