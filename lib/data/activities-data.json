@@ -1,20 +1,20 @@
 {"_id":{"$oid":"5b60f73b8b3e606773fd3886"},"name":"golfing","description":"18-hole round","eventId":{"$oid":"5b60f73a8b3e606773fd3883"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f744590bee6781404831"},"name":"putt putt","description":"9-hole round","eventId":{"$oid":"5b60f744590bee678140482e"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f75451cc6067863e8f42"},"name":"swimming","description":"indoor","eventId":{"$oid":"5b60f75451cc6067863e8f3f"},"indoor":true,"__v":0}
-{"_id":{"$oid":"5b60f75b55626b678b47c720"},"name":"hiking","description":"moderate","eventId":{"$oid":"5b60f75b55626b678b47c71d"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f7612c00b3679087ccac"},"name":"river rafting","description":"fun for the whole family","eventId":{"$oid":"5b60f7612c00b3679087cca9"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f765232c3967952694e2"},"name":"beach day","description":"soak in the sun","eventId":{"$oid":"5b60f765232c3967952694df"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f75b55626b678b47c720"},"name":"hiking","description":"moderate","eventId":{"$oid":"5b60dca256b9c0e182c682e3"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f7612c00b3679087ccac"},"name":"river rafting","description":"fun for the whole family","eventId":{"$oid":"5b60f1209052e3e4ae2a8be5"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f765232c3967952694e2"},"name":"beach day","description":"soak in the sun","eventId":{"$oid":"5b60ee52b481d3e40f410289"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f76a0f30a1679a8319d8"},"name":"barbeque","description":"Texas-style BBQ","eventId":{"$oid":"5b60f76a0f30a1679a8319d5"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f77118cbd6679ea6b6f9"},"name":"climbing","description":"climbing and slacking","eventId":{"$oid":"5b60f77118cbd6679ea6b6f6"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f77118cbd6679ea6b6f9"},"name":"climbing","description":"climbing and slacking","eventId":{"$oid":"5b60f13ae869b7e4b5681fe1"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f776b772cb67a37c1ce9"},"name":"running","description":"marathon prep","eventId":{"$oid":"5b60f776b772cb67a37c1ce6"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f77bd4f0bc67a7f99cce"},"name":"beach volleyball","description":"Kerry Walsh will approve","eventId":{"$oid":"5b60f77bd4f0bc67a7f99ccb"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f77fc9405267acc88945"},"name":"camping","description":"weekend camp excursion","eventId":{"$oid":"5b60f77fc9405267acc88942"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f784fea1cd67b18fe337"},"name":"road trip","description":"let's go","eventId":{"$oid":"5b60f784fea1cd67b18fe334"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f78866078767b67ce37e"},"name":"pool party","description":"summer fun","eventId":{"$oid":"5b60f78866078767b67ce37b"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f77bd4f0bc67a7f99cce"},"name":"beach volleyball","description":"Kerry Walsh will approve","eventId":{"$oid":"5b60ee52b481d3e40f410289"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f77fc9405267acc88945"},"name":"camping","description":"weekend camp excursion","eventId":{"$oid":"5b60dca256b9c0e182c682e3"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f784fea1cd67b18fe337"},"name":"road trip","description":"let's go","eventId":{"$oid":"5b60f13ae869b7e4b5681fde"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f78866078767b67ce37e"},"name":"pool party","description":"summer fun","eventId":{"$oid":"5b60dca256b9c0e182c682e0"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f79274347667ba7d8378"},"name":"badminton","description":"4 player game","eventId":{"$oid":"5b60f79274347667ba7d8375"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f798a5f16c67bfd36f63"},"name":"soccer","description":"GOOOOOAAAAALLLL","eventId":{"$oid":"5b60f798a5f16c67bfd36f60"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f84a52995d67dccb3232"},"name":"bonfire","description":"just add s'mores","eventId":{"$oid":"5b60f84a52995d67dccb322f"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f84a52995d67dccb3232"},"name":"bonfire","description":"just add s'mores","eventId":{"$oid":"5b60dca256b9c0e182c682e0"},"indoor":false,"__v":0}
 {"_id":{"$oid":"5b60f85024b59e67e0cdcaff"},"name":"golfing","description":"18-hole round","eventId":{"$oid":"5b60f85024b59e67e0cdcafc"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f85629c3d367e6f4e405"},"name":"star gazing","description":"astrology rocks","eventId":{"$oid":"5b60f85629c3d367e6f4e402"},"indoor":false,"__v":0}
-{"_id":{"$oid":"5b60f85c5ebd7167eb5bf730"},"name":"creative retreat","description":"retreat","eventId":{"$oid":"5b60f85c5ebd7167eb5bf72d"},"indoor":true,"__v":0}
-{"_id":{"$oid":"5b60f867c137a767f43dd6f6"},"name":"solar eclipse","description":"once in a lifetime","eventId":{"$oid":"5b60f867c137a767f43dd6f3"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f85629c3d367e6f4e405"},"name":"star gazing","description":"astrology rocks","eventId":{"$oid":"5b60f1209052e3e4ae2a8be8"},"indoor":false,"__v":0}
+{"_id":{"$oid":"5b60f85c5ebd7167eb5bf730"},"name":"creative retreat","description":"retreat","eventId":{"$oid":"5b60ee52b481d3e40f41028c"},"indoor":true,"__v":0}
+{"_id":{"$oid":"5b60f867c137a767f43dd6f6"},"name":"solar eclipse","description":"once in a lifetime","eventId":{"$oid":"5b60dca256b9c0e182c682e3"},"indoor":false,"__v":0}
