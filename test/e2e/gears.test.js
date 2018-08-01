@@ -114,6 +114,4 @@ describe('Gears API', () => {
                 assert.deepEqual(body, { removed: true });
             });
     });
-
-
 });
