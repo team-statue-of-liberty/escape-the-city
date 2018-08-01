@@ -36,7 +36,7 @@ describe('Activities API', () => {
 
     beforeEach(() => {
         return request
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send(testUser)
             .then(checkOk)
             .then(({ body }) => {

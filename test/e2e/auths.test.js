@@ -7,14 +7,14 @@ const checkOk = res => {
     return res;
 };
 
-describe('Users API', () => {
+describe('Auth API', () => {
 
     beforeEach(() => dropCollection('users'));
 
     let token;
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'justice@test.com',
                 firstName: 'Justice',
@@ -28,7 +28,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'carrie@test.com',
                 firstName: 'Carrie',
@@ -42,7 +42,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'journey@test.com',
                 firstName: 'Journey',
@@ -56,7 +56,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'lewis@test.com',
                 firstName: 'Lewis',
@@ -70,7 +70,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'sue@test.com',
                 firstName: 'Sue',
@@ -84,7 +84,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'joe@test.com',
                 firstName: 'Joe',
@@ -103,7 +103,7 @@ describe('Users API', () => {
 
     it('signs in a user', () => {
         return request
-            .post('/api/users/signin')
+            .post('/api/auth/signin')
             .send({
                 email: 'joe@test.com',
                 password: 'pass123'
@@ -116,7 +116,7 @@ describe('Users API', () => {
 
     it('verifies a token', () => {
         return request
-            .get('/api/users/verify')
+            .get('/api/auth/verify')
             .set('Authorization', token)
             .then(checkOk);
     });
