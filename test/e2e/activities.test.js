@@ -31,8 +31,8 @@ const testUser = {
 describe('Activities API', () => {
 
     beforeEach(() => dropCollection('users'));
-    // beforeEach(() => dropCollection('activities'));
-    // beforeEach(() => dropCollection('events'));
+    beforeEach(() => dropCollection('activities'));
+    beforeEach(() => dropCollection('events'));
 
     beforeEach(() => {
         return request
@@ -78,7 +78,7 @@ describe('Activities API', () => {
             });
     });
 
-    it.only('saves an activity on POST', () => {
+    it('saves an activity on POST', () => {
         assert.isOk(testActivity._id);
     });
 
