@@ -31,8 +31,8 @@ const testUser = {
 describe('Activities API', () => {
 
     beforeEach(() => dropCollection('users'));
-    beforeEach(() => dropCollection('activities'));
-    beforeEach(() => dropCollection('events'));
+    // beforeEach(() => dropCollection('activities'));
+    // beforeEach(() => dropCollection('events'));
 
     beforeEach(() => {
         return request
