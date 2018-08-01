@@ -19,7 +19,7 @@ describe.skip('seed data', () => {
         execSync(`mongoimport --db ${mongoose.connection.name} --collection gears --drop --file ${gearsDataFile}`);
         execSync(`mongoimport --db ${mongoose.connection.name} --collection events --drop --file ${eventsDataFile}`);
         execSync(`mongoimport --db ${mongoose.connection.name} --collection activities --drop --file ${activitiesDataFile}`);
-    })
+    });
 
     // TERMINAL commands to take seed data and export back to json data files (to keep same ObjectId)
     // mongoexport --db escape --collection users --out users-data.json
