@@ -35,7 +35,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'antreo9@test.com',
                 firstName: 'Antreo',
@@ -49,7 +49,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'brian9@test.com',
                 firstName: 'Brian',
@@ -63,7 +63,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'carrie88@test.com',
                 firstName: 'Carrie',
@@ -77,7 +77,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'kevin678@test.com',
                 firstName: 'Kevin',
@@ -91,7 +91,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'mariah678@test.com',
                 firstName: 'Mariah',
@@ -105,7 +105,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'sarah675@test.com',
                 firstName: 'Sarah',
@@ -119,7 +119,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'easton55@test.com',
                 firstName: 'Easton',
@@ -133,7 +133,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'mark55@test.com',
                 firstName: 'Mark',
@@ -147,7 +147,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'robyn55@test.com',
                 firstName: 'Robyn',
@@ -161,7 +161,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'andrew33@test.com',
                 firstName: 'Andrew',
@@ -175,7 +175,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'arthur33@test.com',
                 firstName: 'Arthur',
@@ -189,7 +189,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'carmen334@test.com',
                 firstName: 'Carmen',
@@ -203,7 +203,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'hen314@test.com',
                 firstName: 'Injoong',
@@ -217,7 +217,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'mario345@test.com',
                 firstName: 'Mario',
@@ -231,7 +231,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'bobby45354@test.com',
                 firstName: 'Robert',
@@ -245,7 +245,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'ryanL345@test.com',
                 firstName: 'RyanL',
@@ -259,7 +259,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'marty34@test.com',
                 firstName: 'Marty',
@@ -273,7 +273,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'elizabeth3453@test.com',
                 firstName: 'Elizabeth',
@@ -287,7 +287,7 @@ describe('Users API', () => {
     });
     beforeEach(() => {
         return request  
-            .post('/api/users/signup')
+            .post('/api/auth/signup')
             .send({
                 email: 'tasha345@test.com',
                 firstName: 'Tasha',
@@ -301,7 +301,7 @@ describe('Users API', () => {
     });
 
     /* ************TESTS************ */
-    it.only('signs up the user', () => {
+    it('signs up the user', () => {
         assert.isDefined(token);
     });
 
