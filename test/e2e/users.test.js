@@ -105,7 +105,7 @@ describe('Users API', () => {
         return request
             .post('/api/users/signin')
             .send({
-                email: 'hello3@test.com',
+                email: 'joe@test.com',
                 password: 'pass123'
             })
             .then(checkOk)
