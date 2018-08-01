@@ -89,7 +89,7 @@ describe('Events API', () => {
                     });
             });
     });
-    
+
     beforeEach(() => {
         return save('gears', {
             item: 'hammock',
@@ -198,7 +198,7 @@ describe('Events API', () => {
             });
     });
 
-    it.only('gets one event by id, populating with correct data', () => {
+    it('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
