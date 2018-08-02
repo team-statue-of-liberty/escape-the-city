@@ -282,7 +282,7 @@ describe('Events API', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
-            .send(testUser2._id)
+            .send(testUser2)
             .then(({ body }) => {
                 assert.equal(body.attendees.length, 1);
                 assert.equal(body.attendees[0], testUser2._id);
