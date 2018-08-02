@@ -25,6 +25,12 @@ let hammock;
 let floaty;
 let testEvent;
 let testEvent2;
+let testEvent3;
+let testEvent4;
+let testEvent5;
+let testEvent6;
+let testEvent7;
+let testEvent8;
 let testActivity1;
 let testActivity2;
 let testActivity3;
@@ -116,7 +122,6 @@ describe('Events API', () => {
             });
     });
 
-
     beforeEach(() => {
         return save('events', {
             description: 'fun in the sun at Lost Lake',
@@ -138,102 +143,214 @@ describe('Events API', () => {
     beforeEach(() => {
         return save('events', {
             description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
+            where: 'Secret spot that I know',
             when: new Date('2018-10-10'),
             groupSize: 5,
-            desiredGear: [{
-                item: 'Food'
-            }],
+            desiredGear: [
+                {
+                    item: 'camp chairs'
+                }
+
+            ],
             attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
     });
 
-    /* new events 8/2 */
     beforeEach(() => {
         return save('events', {
-            description: 'End of Summer Bonfire',
-            where: 'Mission Beach - South Jetty',
-            when: new Date('2018-8-12'),
-            groupSize: 10,
+            description: 'Silver Star Hike',
+            where: 'Silver Star Mountain Washington',
+            when: new Date('2018-11-10'),
+            groupSize: 8,
             desiredGear: [
                 {
-                    item: 'wood'
+                    item: 'binoculars'
                 },
                 {
-                    item: 's\'more sticks'
+                    item: 'camp chairs'
                 },
                 {
-                    item: 'EZ up tent'
+                    item: 'gps'
+                },
+                {
+                    item: 'cooler'
+                },
+                {
+                    item: 'sleeping bag'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent3 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Surf day on the coast',
+            where: 'Oswald West',
+            when: new Date('2018-07-04'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'firewood'
+                },
+                {
+                    item: 'frisbee'
+                },
+                {
+                    item: 'bodyboard'
+                },
+                {
+                    item: 'wagon'
+                },
+                {
+                    item: 'snorkel gear'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent4 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Timberline Trail thru-hike',
+            where: 'Mt.Hood Oregon',
+            when: new Date('2018-09-12'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'ultralight camp cook set'
+                },
+                {
+                    item: 'sleeping bag'
+                },
+                {
+                    item: 'water filter'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent5 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Cottonwood Canyon Cookout',
+            where: 'Cottonwood Canyon State Park, OR',
+            when: new Date('2018-10-12'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'lawn darts'
                 },
                 {
                     item: 'pie iron'
+                },
+                {
+                    item: 'bocce ball set'
+                },
+                {
+                    item: 'giant Jenga'
+                },
+                {
+                    item: 'cooler'
+                },
+                {
+                    item: 'SUP'
+                },
+                {
+                    item: 'walkie-talkies'
+                },
+                {
+                    item: 'EZ up tent'
                 }
             ],
+            attendees: [],
             ownerId: testUser2._id
         }, token)
-            .then(data => testEvent2 = data);
+            .then(data => testEvent6 = data);
     });
+
     beforeEach(() => {
         return save('events', {
-            description: 'Fishing at Fourmile Lake',
-            where: 'Fourmile Lake',
-            when: new Date('2018-9-10'),
-            groupSize: 3,
+            description: 'Oregon Coast Adventure Weekend',
+            where: 'Cannon Beach to Tillamook',
+            when: new Date('2018-06-03'),
+            groupSize: 8,
             desiredGear: [
                 {
-                    item: 'fishing rod'
+                    item: 'golf clubs'
+                },
+                {
+                    item: 'hammock'
+                },
+                {
+                    item: 'camp chairs'
+                },
+                {
+                    item: 'frisbee'
+                },
+                {
+                    item: 'beach umbrella'
+                },
+                {
+                    item: 'wetsuit'
+                },
+                {
+                    item: 'kayak'
+                },
+                {
+                    item: 'bike'
                 }
             ],
+            attendees: [],
             ownerId: testUser2._id
         }, token)
-            .then(data => testEvent2 = data);
+            .then(data => testEvent7 = data);
     });
+
     beforeEach(() => {
         return save('events', {
-            description: '',
-            where: '',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
+            description: 'Detroit Lake Party',
+            where: 'Detroit Lake Oregon',
+            when: new Date('2018-08-10'),
+            groupSize: 6,
             desiredGear: [
                 {
-                    item: ''
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
-            desiredGear: [
+                    item: 'soccerball'
+                },
                 {
-                    item: 'Food'
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
-            desiredGear: [
+                    item: 'floaty'
+                },
                 {
-                    item: 'Food'
+                    item: 'paddle board'
+                },
+                {
+                    item: 'fishing rods'
+                },
+                {
+                    item: 'water skis'
+                },
+                {
+                    item: 'life jacket'
+                },
+                {
+                    item: 'walkie-talkies'
+                },
+                {
+                    item: 'SUP'
                 }
             ],
+            attendees: [],
             ownerId: testUser2._id
         }, token)
-            .then(data => testEvent2 = data);
+            .then(data => testEvent8 = data);
     });
 
     beforeEach(() => {
@@ -283,7 +400,10 @@ describe('Events API', () => {
             .get('/api/events')
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [testEvent2, testEvent]);
+                assert.deepEqual(body, [
+                    testEvent2,
+                    testEvent
+                ]);
             });
     });
 
@@ -344,7 +464,6 @@ describe('Events API', () => {
             });
     });
 
-    //discuss with group about delete functionality and how it should work
     it('will not delete if user did not create the event', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
