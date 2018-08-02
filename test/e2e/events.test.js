@@ -131,7 +131,7 @@ describe('Events API', () => {
             }],
             attendees: [],
             ownerId: testUser._id
-        }, token2)
+        }, token)
             .then(data => testEvent = data);
     });
 
@@ -331,7 +331,7 @@ describe('Events API', () => {
                 assert.equal(body.description, testEvent.description);
             });
     });
-
+    
     it('does not allow the non user to edit posts', () => {
         testEvent.description = 'THE BEST EVER';
         return request
@@ -350,7 +350,7 @@ describe('Events API', () => {
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token2)
             .then(({ body }) => {
-                assert.deepEqual(body, { removed: false });
+                assert.deepEqual(body, { error: 'Unauthorized' });
             });
     });
 
