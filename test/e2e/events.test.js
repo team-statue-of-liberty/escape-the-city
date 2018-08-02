@@ -28,6 +28,7 @@ let testEvent2;
 let testActivity1;
 let testActivity2;
 let testActivity3;
+let attendeeList;
 
 const save = (path, data, token = null) => {
     return request
@@ -185,6 +186,16 @@ describe('Events API', () => {
             });
     });
 
+    beforeEach(() => {
+        return save('attendees', {
+            eventId: testEvent._id,
+            attendees: []
+        }, token)
+            .then(data => attendeeList = data);
+    });
+
+
+    /* **********TESTS************* */
     it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
@@ -272,6 +283,18 @@ describe('Events API', () => {
             .send(testEvent)
             .then(({ body }) => {
                 assert.deepEqual(body, { removed: true });
+            });
+    });
+
+    it.only('adds a user to the event attendee list', () => {
+        return request
+            .post(`/api/events/${testEvent._id}/attendees`)
+            .set('Authorization', token)
+            .send(testUser2)
+            .then(({ body }) => {
+                console.log('*******TEST CONSOLE******', body);
+                assert.equal(body.attendees.length, 1);
+                assert.equal(body.attendees[0], testUser2._id);
             });
     });
 

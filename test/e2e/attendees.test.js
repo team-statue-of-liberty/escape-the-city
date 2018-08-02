@@ -126,7 +126,8 @@ describe('Attendees API', () => {
             .then(data => attendeeList = data);
     });
 
-    it.only('saves an attendee', () => {
+    it('saves a list of attendees', () => {
         assert.isOk(attendeeList._id);
     });
+
 });
