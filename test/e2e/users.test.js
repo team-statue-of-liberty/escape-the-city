@@ -9,12 +9,19 @@ const checkOk = res => {
 };
 
 let token;
+let token2;
 
 const user = {
     email: 'Chris@test.com',
     firstName: 'Chris',
     driver: false,
     password: 'pass123'
+};
+const user2 = {
+    email: 'Mariah@test.com',
+    firstName: 'Mariah',
+    driver: false,
+    password: 'abc123'
 };
 
 describe('Users API', () => {
@@ -31,6 +38,19 @@ describe('Users API', () => {
                 verify(token)
                     .then((body) => {
                         user._id = body.id;
+                    });
+            });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/auth/signup')
+            .send(user2)
+            .then(checkOk)
+            .then(({ body }) => {
+                token2 = body.token;
+                verify(token2)
+                    .then((body) => {
+                        user2._id = body.id;
                     });
             });
     });
@@ -70,6 +90,14 @@ describe('Users API', () => {
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, { removed: true });
+            });
+    });
+    it.only('does not allow a user to delete another profile', () => {
+        return request
+            .delete(`/api/users/${user._id}`)
+            .set('Authorization', token2)
+            .then(({ body }) => {
+                assert.deepEqual(body, { error: 'Unauthorized' });
             });
     });
 });
