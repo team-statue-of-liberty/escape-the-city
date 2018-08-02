@@ -84,15 +84,6 @@ describe('Gears API', () => {
         assert.isDefined(floaty);
     });
 
-    it('gets all gear a user has to offer', () => {
-        return request  
-            .get(`/api/gears/${testUser._id}`)
-            .then(checkOk)
-            .then(({ body }) => {
-                assert.deepEqual(body, [makeSimpleGear(hammock), makeSimpleGear(floaty)]);   
-            });
-    });
-
     it('allows user to edit gear items', () => {
         floaty.description = 'giant donut';
         return request
