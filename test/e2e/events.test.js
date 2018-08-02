@@ -189,9 +189,12 @@ describe('Events API', () => {
     beforeEach(() => {
         return save('attendees', {
             eventId: testEvent._id,
-            attendees: []
+            attendees: [testUser2._id]
         }, token)
-            .then(data => attendeeList = data);
+            .then(data => {
+                attendeeList = data;
+                assert.isDefined(attendeeList);
+            });
     });
 
 
@@ -209,13 +212,14 @@ describe('Events API', () => {
             });
     });
 
-    it('gets one event by id, populating with correct data', () => {
+    it.only('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
                 assert.isDefined(body.invitees);
                 assert.isDefined(body.activities);
+                assert.isDefined(body.attendees);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
                 assert.deepEqual(body.activities[1], makeSimpleActivity(testActivity2));
@@ -285,13 +289,12 @@ describe('Events API', () => {
             });
     });
 
-    it.only('adds a user to the event attendee list', () => {
+    it('adds a user to the event attendee list', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
             .send(testUser2)
             .then(({ body }) => {
-                console.log('*******TEST CONSOLE******', body);
                 assert.equal(body.attendees.length, 1);
                 assert.equal(body.attendees[0], testUser2._id);
             });
