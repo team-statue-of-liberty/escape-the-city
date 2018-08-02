@@ -206,7 +206,7 @@ describe('Events API', () => {
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.isDefined(body.invitees);
+                assert.isDefined(body.match);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
