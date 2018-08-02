@@ -30,6 +30,7 @@ let testEvent4;
 let testEvent5;
 let testEvent6;
 let testEvent7;
+let testEvent8;
 let testActivity1;
 let testActivity2;
 let testActivity3;
@@ -142,12 +143,12 @@ describe('Events API', () => {
     beforeEach(() => {
         return save('events', {
             description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
+            where: 'Secret spot that I know',
             when: new Date('2018-10-10'),
             groupSize: 5,
             desiredGear: [
                 {
-                    item: 'Food'
+                    item: 'camp chairs'
                 }
 
             ],
@@ -463,7 +464,6 @@ describe('Events API', () => {
             });
     });
 
-    //discuss with group about delete functionality and how it should work
     it('will not delete if user did not create the event', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
