@@ -391,7 +391,7 @@ describe('Events API', () => {
     });
 
     /* **********TESTS************* */
-    it.only('saves an event to the database', () => {
+    it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
 
