@@ -202,11 +202,12 @@ describe('Events API', () => {
             });
     });
 
-    it('gets one event by id, populating with correct data', () => {
+    it.only('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
+                console.log('******BODY*****', body);
                 assert.isDefined(body.invitees);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
@@ -278,7 +279,7 @@ describe('Events API', () => {
             });
     });
 
-    it.only('adds a user to the event attendee list', () => {
+    it('adds a user to the event attendee list', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
@@ -288,5 +289,4 @@ describe('Events API', () => {
                 assert.equal(body.attendees[0], testUser2._id);
             });
     });
-
 });
