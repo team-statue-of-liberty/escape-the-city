@@ -40,6 +40,7 @@ const user = {
     driver: false,
     password: 'pass123'
 };
+
 const user2 = {
     email: 'Mariah@test.com',
     firstName: 'Mariah',
@@ -47,7 +48,7 @@ const user2 = {
     password: 'abc123'
 };
 
-describe.only('Users API', () => {
+describe('Users API', () => {
     
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('gears'));
@@ -65,6 +66,7 @@ describe.only('Users API', () => {
                     });
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -145,7 +147,8 @@ describe.only('Users API', () => {
                 assert.deepEqual(body, { removed: true });
             });
     });
-    it.only('does not allow a user to delete another profile', () => {
+
+    it('does not allow a user to delete another profile', () => {
         return request
             .delete(`/api/users/${user._id}`)
             .set('Authorization', token2)
