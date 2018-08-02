@@ -130,6 +130,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
+            attendees: [],
             ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
@@ -144,6 +145,7 @@ describe('Events API', () => {
             desiredGear: [{
                 item: 'Food'
             }],
+            attendees: [],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
@@ -185,15 +187,6 @@ describe('Events API', () => {
                 assert.equal(testActivity3.name, 'swimming');
             });
     });
-
-    beforeEach(() => {
-        return save('attendees', {
-            eventId: testEvent._id,
-            attendees: []
-        }, token)
-            .then(data => attendeeList = data);
-    });
-
 
     /* **********TESTS************* */
     it('saves an event to the database', () => {
@@ -289,9 +282,8 @@ describe('Events API', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
-            .send(testUser2)
+            .send(testUser2._id)
             .then(({ body }) => {
-                console.log('*******TEST CONSOLE******', body);
                 assert.equal(body.attendees.length, 1);
                 assert.equal(body.attendees[0], testUser2._id);
             });
