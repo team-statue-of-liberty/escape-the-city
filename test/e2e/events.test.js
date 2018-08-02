@@ -25,6 +25,11 @@ let hammock;
 let floaty;
 let testEvent;
 let testEvent2;
+let testEvent3;
+let testEvent4;
+let testEvent5;
+let testEvent6;
+let testEvent7;
 let testActivity1;
 let testActivity2;
 let testActivity3;
@@ -150,92 +155,6 @@ describe('Events API', () => {
             .then(data => testEvent2 = data);
     });
 
-    /* new events 8/2 */
-    beforeEach(() => {
-        return save('events', {
-            description: 'End of Summer Bonfire',
-            where: 'Mission Beach - South Jetty',
-            when: new Date('2018-8-12'),
-            groupSize: 10,
-            desiredGear: [
-                {
-                    item: 'wood'
-                },
-                {
-                    item: 's\'more sticks'
-                },
-                {
-                    item: 'EZ up tent'
-                },
-                {
-                    item: 'pie iron'
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: 'Fishing at Fourmile Lake',
-            where: 'Fourmile Lake',
-            when: new Date('2018-9-10'),
-            groupSize: 3,
-            desiredGear: [
-                {
-                    item: 'fishing rod'
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: '',
-            where: '',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
-            desiredGear: [
-                {
-                    item: ''
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
-            desiredGear: [
-                {
-                    item: 'Food'
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-    beforeEach(() => {
-        return save('events', {
-            description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
-            when: new Date('2018-10-10'),
-            groupSize: 5,
-            desiredGear: [
-                {
-                    item: 'Food'
-                }
-            ],
-            ownerId: testUser2._id
-        }, token)
-            .then(data => testEvent2 = data);
-    });
-
     beforeEach(() => {
         return save('activities', {
             name: 'golfing',
@@ -283,7 +202,10 @@ describe('Events API', () => {
             .get('/api/events')
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [testEvent2, testEvent]);
+                assert.deepEqual(body, [
+                    testEvent2,
+                    testEvent, 
+                ]);
             });
     });
 
