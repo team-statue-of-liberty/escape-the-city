@@ -129,6 +129,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
+            attendees: [],
             ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
@@ -143,6 +144,7 @@ describe('Events API', () => {
             desiredGear: [{
                 item: 'Food'
             }],
+            attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
@@ -271,7 +273,8 @@ describe('Events API', () => {
             });
     });
 
-    it.only('saves an event to the database', () => {
+    /* **********TESTS************* */
+    it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
 
@@ -289,7 +292,7 @@ describe('Events API', () => {
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.isDefined(body.invitees);
+                assert.isDefined(body.match);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
@@ -347,18 +350,27 @@ describe('Events API', () => {
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token2)
             .then(({ body }) => {
-                assert.deepEqual(body.error, 'Invalid user');
+                assert.deepEqual(body, { removed: false });
             });
     });
 
-    it.only('allows users to delete events', () => {
+    it('allows users to delete events', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token)
-            .send(testEvent)
             .then(({ body }) => {
                 assert.deepEqual(body, { removed: true });
             });
     });
 
+    it('adds a user to the event attendee list', () => {
+        return request
+            .post(`/api/events/${testEvent._id}/attendees`)
+            .set('Authorization', token)
+            .send(testUser2)
+            .then(({ body }) => {
+                assert.equal(body.attendees.length, 1);
+                assert.equal(body.attendees[0], testUser2._id);
+            });
+    });
 });
