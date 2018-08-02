@@ -235,7 +235,7 @@ describe('Events API', () => {
 
     it('gets events by activity', () => {
         return request
-            .get('/api/events/activity/swimming')
+            .get('/api/events/swimming')
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, [testEvent, testEvent2]);
