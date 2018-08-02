@@ -268,7 +268,7 @@ describe('Events API', () => {
             .delete(`/api/events/${testEvent._id}`)
             .set('Authorization', token2)
             .then(({ body }) => {
-                assert.deepEqual(body, { error: 'Unauthorized' });
+                assert.deepEqual(body, { removed: false });
             });
     });
 
