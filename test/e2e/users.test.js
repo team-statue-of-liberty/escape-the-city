@@ -9,6 +9,7 @@ const checkOk = res => {
 };
 
 let token;
+
 const user = {
     email: 'Chris@test.com',
     firstName: 'Chris',
@@ -36,6 +37,18 @@ describe('Users API', () => {
 
     it('signs up the user', () => {
         assert.isDefined(token);
+    });
+
+    it('gets a user by id', () => {
+        return request
+            .get(`/api/users/${user._id}`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body.firstName, user.firstName);
+                assert.equal(body.driver, false);
+                assert.isUndefined(body.password);
+                assert.isUndefined(body.hash);
+            });
     });
 
     it('allows user to update their profile', () => {
