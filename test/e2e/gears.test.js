@@ -8,22 +8,8 @@ const checkOk = res => {
     return res;
 };
 
-const makeSimpleGear = (gear) => {
-    const makeSimple = {
-        _id: gear._id,
-        item: gear.item,
-        description: gear.description,
-        quantity: gear.quantity,
-        ownerId: gear.ownerId
-    };
-
-    return makeSimple;
-};
-
-
 let token;
 let floaty;
-let hammock;
 
 const save = (path, data, token = null) => {
     return request
@@ -62,16 +48,6 @@ describe('Gears API', () => {
 
     beforeEach(() => {
         return save('gears', {
-            item: 'hammock',
-            description: 'Eno Double Nest 300lb capacity',
-            quantity: 1,
-            ownerId: testUser._id
-        }, token) 
-            .then(data => hammock = data);
-    });
-
-    beforeEach(() => {
-        return save('gears', {
             item: 'floaty',
             description: 'unicorn',
             quantity: 3,
@@ -82,15 +58,6 @@ describe('Gears API', () => {
 
     it('saves a gear item', () => {
         assert.isDefined(floaty);
-    });
-
-    it('gets all gear a user has to offer', () => {
-        return request  
-            .get(`/api/gears/${testUser._id}`)
-            .then(checkOk)
-            .then(({ body }) => {
-                assert.deepEqual(body, [makeSimpleGear(hammock), makeSimpleGear(floaty)]);   
-            });
     });
 
     it('allows user to edit gear items', () => {

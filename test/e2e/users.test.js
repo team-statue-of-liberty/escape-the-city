@@ -8,7 +8,31 @@ const checkOk = res => {
     return res;
 };
 
+const makeSimpleGear = (gear) => {
+    const makeSimple = {
+        _id: gear._id,
+        item: gear.item,
+        description: gear.description,
+        quantity: gear.quantity,
+        ownerId: gear.ownerId
+    };
+
+    return makeSimple;
+};
+
+const save = (path, data, token = null) => {
+    return request
+        .post(`/api/${path}`)
+        .set('Authorization', token)
+        .send(data)
+        .then(checkOk)
+        .then(({ body }) => body);
+};
+
 let token;
+let token2;
+let floaty;
+let hammock;
 
 const user = {
     email: 'Chris@test.com',
@@ -16,10 +40,17 @@ const user = {
     driver: false,
     password: 'pass123'
 };
+const user2 = {
+    email: 'Mariah@test.com',
+    firstName: 'Mariah',
+    driver: false,
+    password: 'abc123'
+};
 
 describe('Users API', () => {
     
     beforeEach(() => dropCollection('users'));
+    beforeEach(() => dropCollection('gears'));
     
     beforeEach(() => {
         return request  
@@ -33,6 +64,39 @@ describe('Users API', () => {
                         user._id = body.id;
                     });
             });
+    });
+    beforeEach(() => {
+        return request  
+            .post('/api/auth/signup')
+            .send(user2)
+            .then(checkOk)
+            .then(({ body }) => {
+                token2 = body.token;
+                verify(token2)
+                    .then((body) => {
+                        user2._id = body.id;
+                    });
+            });
+    });
+
+    beforeEach(() => {
+        return save('gears', {
+            item: 'hammock',
+            description: 'Eno Double Nest 300lb capacity',
+            quantity: 1,
+            ownerId: user._id
+        }, token) 
+            .then(data => hammock = data);
+    });
+
+    beforeEach(() => {
+        return save('gears', {
+            item: 'floaty',
+            description: 'unicorn',
+            quantity: 3,
+            ownerId: user._id
+        }, token) 
+            .then(data => floaty = data);
     });
 
     it('signs up the user', () => {
@@ -48,6 +112,15 @@ describe('Users API', () => {
                 assert.equal(body.driver, false);
                 assert.isUndefined(body.password);
                 assert.isUndefined(body.hash);
+            });
+    });
+
+    it('gets all gear a user has to offer', () => {
+        return request  
+            .get(`/api/users/${user._id}/gear`)
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, [makeSimpleGear(hammock), makeSimpleGear(floaty)]);   
             });
     });
 
@@ -70,6 +143,14 @@ describe('Users API', () => {
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, { removed: true });
+            });
+    });
+    it('does not allow a user to delete another profile', () => {
+        return request
+            .delete(`/api/users/${user._id}`)
+            .set('Authorization', token2)
+            .then(({ body }) => {
+                assert.deepEqual(body, { error: 'Unauthorized' });
             });
     });
 });

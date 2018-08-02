@@ -28,7 +28,6 @@ let testEvent2;
 let testActivity1;
 let testActivity2;
 let testActivity3;
-let attendeeList;
 
 const save = (path, data, token = null) => {
     return request
@@ -117,7 +116,6 @@ describe('Events API', () => {
             });
     });
 
-
     beforeEach(() => {
         return save('events', {
             description: 'fun in the sun at Lost Lake',
@@ -130,20 +128,25 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
+            attendees: [],
             ownerId: testUser._id
-        }, token2)
+        }, token)
             .then(data => testEvent = data);
     });
 
     beforeEach(() => {
         return save('events', {
             description: 'Lets go to hot springs!',
-            where: 'Hot spring place',
+            where: 'Secret spot that I know',
             when: new Date('2018-10-10'),
             groupSize: 5,
-            desiredGear: [{
-                item: 'Food'
-            }],
+            desiredGear: [
+                {
+                    item: 'camp chairs'
+                }
+
+            ],
+            attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
@@ -186,15 +189,6 @@ describe('Events API', () => {
             });
     });
 
-    beforeEach(() => {
-        return save('attendees', {
-            eventId: testEvent._id,
-            attendees: []
-        }, token)
-            .then(data => attendeeList = data);
-    });
-
-
     /* **********TESTS************* */
     it('saves an event to the database', () => {
         assert.isOk(testEvent._id);
@@ -205,7 +199,10 @@ describe('Events API', () => {
             .get('/api/events')
             .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body, [testEvent2, testEvent]);
+                assert.deepEqual(body, [
+                    testEvent2,
+                    testEvent
+                ]);
             });
     });
 
@@ -214,7 +211,7 @@ describe('Events API', () => {
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                assert.isDefined(body.invitees);
+                assert.isDefined(body.match);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
@@ -253,7 +250,7 @@ describe('Events API', () => {
                 assert.equal(body.description, testEvent.description);
             });
     });
-
+    
     it('does not allow the non user to edit posts', () => {
         testEvent.description = 'THE BEST EVER';
         return request
@@ -266,7 +263,6 @@ describe('Events API', () => {
             });
     });
 
-    //discuss with group about delete functionality and how it should work
     it('will not delete if user did not create the event', () => {
         return request
             .delete(`/api/events/${testEvent._id}`)
@@ -285,16 +281,14 @@ describe('Events API', () => {
             });
     });
 
-    it.only('adds a user to the event attendee list', () => {
+    it('adds a user to the event attendee list', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
             .send(testUser2)
             .then(({ body }) => {
-                console.log('*******TEST CONSOLE******', body);
                 assert.equal(body.attendees.length, 1);
                 assert.equal(body.attendees[0], testUser2._id);
             });
     });
-
 });

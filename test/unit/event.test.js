@@ -12,6 +12,7 @@ describe('Events model', () => {
             where: 'Lost Lake',
             when: new Date(),
             groupSize: 8,
+            attendees: [],
             desiredGear: [{
                 item: 'Cornhole'
             },

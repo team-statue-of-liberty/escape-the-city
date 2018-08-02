@@ -3,13 +3,13 @@
 {"_id":{"$oid":"5b60ede5ec00fb652e9b3b68"},"item":"golf clubs","description":"full set, men's clubs","quantity":1,"ownerId":{"$oid":"5b61f5534d2c720a307de051"},"__v":0}
 {"_id":{"$oid":"5b60ede5ec00fb652e9b3b69"},"item":"firewood","description":"20 bundles","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de052"},"__v":0}
 {"_id":{"$oid":"5b60eff4ec20e065c8377998"},"item":"tent","description":"Coleman tent, sleeps 8","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de052"},"__v":0}
-{"_id":{"$oid":"5b60eff4ec20e065c8377999"},"item":"Coleman cooler","description":"150qt, green, ice ice baby","quantity":3,"ownerId":{"$oid":"5b61f5554d2c720a307de053"},"__v":0}
+{"_id":{"$oid":"5b60eff4ec20e065c8377999"},"item":"cooler","description":"Coleman 150qt, green, ice ice baby","quantity":3,"ownerId":{"$oid":"5b61f5554d2c720a307de053"},"__v":0}
 {"_id":{"$oid":"5b60f013ebb35c65d09858e3"},"item":"collapsible java drip","description":"have coffee, will travel","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de054"},"__v":0}
 {"_id":{"$oid":"5b60f013ebb35c65d09858e4"},"item":"S'more sticks","description":"You're killing me, Smalls","quantity":30,"ownerId":{"$oid":"5b61f5554d2c720a307de054"},"__v":0}
 {"_id":{"$oid":"5b60f019530fa265d5c7aa88"},"item":"lawn darts","description":"deadly fun","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de054"},"__v":0}
 {"_id":{"$oid":"5b60f019530fa265d5c7aa89"},"item":"ultralight camp cook set","description":"perfect for hiking","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de054"},"__v":0}
 {"_id":{"$oid":"5b60f01e86906365da25ad78"},"item":"camp chairs","description":"foldable camping chairs","quantity":4,"ownerId":{"$oid":"5b61f5554d2c720a307de055"},"__v":0}
-{"_id":{"$oid":"5b60f01e86906365da25ad79"},"item":"sleeping bags","description":"adult mummy bags","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de055"},"__v":0}
+{"_id":{"$oid":"5b60f01e86906365da25ad79"},"item":"sleeping bag","description":"adult mummy bag","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de055"},"__v":0}
 {"_id":{"$oid":"5b60f02230febe65df86b760"},"item":"lanterns","description":"need batteries","quantity":4,"ownerId":{"$oid":"5b61f5554d2c720a307de055"},"__v":0}
 {"_id":{"$oid":"5b60f02230febe65df86b761"},"item":"slackline","description":"74ft, strength 40kN","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de055"},"__v":0}
 {"_id":{"$oid":"5b60f02b0899ea65e49a5302"},"item":"bike","description":"mountain bike","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de056"},"__v":0}
@@ -18,7 +18,7 @@
 {"_id":{"$oid":"5b60f030169ae665e88f9434"},"item":"frisbee","description":"Wham-o frisbees","quantity":5,"ownerId":{"$oid":"5b61f5554d2c720a307de056"},"__v":0}
 {"_id":{"$oid":"5b60f03d1dd82d65ee40130b"},"item":"river raft","description":"seats 4","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de057"},"__v":0}
 {"_id":{"$oid":"5b60f03d1dd82d65ee40130c"},"item":"cornhole","description":"MICHIGAN vs OHIO ST cornhole game","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de057"},"__v":0}
-{"_id":{"$oid":"5b60f04202783565f36955e7"},"item":"portable bluetooth speaker","description":"let's jam!","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de057"},"__v":0}
+{"_id":{"$oid":"5b60f04202783565f36955e7"},"item":"portable speaker","description":"let's jam!","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de057"},"__v":0}
 {"_id":{"$oid":"5b60f04202783565f36955e8"},"item":"beach umbrella","description":"large portable beach umbrella","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de057"},"__v":0}
 {"_id":{"$oid":"5b60f046a7d19165f7da4706"},"item":"camp grill","description":"compact grill","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de058"},"__v":0}
 {"_id":{"$oid":"5b60f046a7d19165f7da4707"},"item":"soccerball","description":"FIFA ready","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de058"},"__v":0}
@@ -33,7 +33,7 @@
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35f1"},"item":"pie iron","description":"make campfire hand pies","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de05c"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35f0"},"item":"fishing rods","description":"fly fishing","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de05c"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e5"},"item":"bodyboard","description":"shark","quantity":4,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
-{"_id":{"$oid":"5b60f04f2eef8665fcbf35e6"},"item":"life vests","description":"assorted adult sizes","quantity":6,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35e6"},"item":"life jacket","description":"adult life jacket","quantity":6,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e7"},"item":"snorkel gear","description":"mask and fins for 1","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e8"},"item":"water skis","description":"1 set","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e9"},"item":"gps","description":"garmin gps","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05e"},"__v":0}
@@ -43,3 +43,17 @@
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e2"},"item":"horseshoe","description":"St. Pierre American Professional Horseshoe Set","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de062"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35e1"},"item":"giant Jenga","description":"Wild Sports Stackers XL Game","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35d5"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a1"},"item":"gas can","description":"1 gallon gas can","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a2"},"item":"SUP","description":"stand up paddle board","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de059"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a3"},"item":"wetsuit","description":"men's large","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a4"},"item":"kayak","description":"ocean kayak","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a5"},"item":"kayak","description":"sun dolphin bali 10 ss","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a6"},"item":"hammock","description":"portable nylon hammock","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a7"},"item":"portable speaker","description":"bluetooth compatible","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05d"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a8"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a9"},"item":"binoculars","description":"scratch and fog proof binoculars","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35a0"},"item":"water filter","description":"Sawyer Squeeze","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35b0"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35b1"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de05f"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35b2"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de052"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35b3"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de059"},"__v":0}
