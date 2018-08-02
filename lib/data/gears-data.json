@@ -52,8 +52,8 @@
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35g6"},"item":"hammock","description":"portable nylon hammock","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35g7"},"item":"portable speaker","description":"bluetooth compatible","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 // {"_id":{"$oid":"5b60f04f2eef8665fcbf35g8"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
-{"_id":{"$oid":"5b60f04f2eef8665fcbf35g9"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
-{"_id":{"$oid":"5b60f04f2eef8665fcbf35g0"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35g9"},"item":"binoculars","description":"scratch and fog proof binoculars","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
+{"_id":{"$oid":"5b60f04f2eef8665fcbf35g0"},"item":"water filter","description":"Sawyer Squeeze","quantity":2,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35h0"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35h1"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}
 {"_id":{"$oid":"5b60f04f2eef8665fcbf35h2"},"item":"cooler","description":"yeti 50g roadie cooler","quantity":1,"ownerId":{"$oid":"5b61f5554d2c720a307de063"},"__v":0}

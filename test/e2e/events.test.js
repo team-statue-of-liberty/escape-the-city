@@ -121,7 +121,6 @@ describe('Events API', () => {
             });
     });
 
-
     beforeEach(() => {
         return save('events', {
             description: 'fun in the sun at Lost Lake',
@@ -146,13 +145,211 @@ describe('Events API', () => {
             where: 'Hot spring place',
             when: new Date('2018-10-10'),
             groupSize: 5,
-            desiredGear: [{
-                item: 'Food'
-            }],
+            desiredGear: [
+                {
+                    item: 'Food'
+                }
+
+            ],
             attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Silver Star Hike',
+            where: 'Silver Star Mountain Washington',
+            when: new Date('2018-11-10'),
+            groupSize: 8,
+            desiredGear: [
+                {
+                    item: 'binoculars'
+                },
+                {
+                    item: 'camp chairs'
+                },
+                {
+                    item: 'gps'
+                },
+                {
+                    item: 'cooler'
+                },
+                {
+                    item: 'sleeping bag'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent3 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Surf day on the coast',
+            where: 'Oswald West',
+            when: new Date('2018-07-04'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'firewood'
+                },
+                {
+                    item: 'frisbee'
+                },
+                {
+                    item: 'bodyboard'
+                },
+                {
+                    item: 'wagon'
+                },
+                {
+                    item: 'snorkel gear'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent4 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Timberline Trail thru-hike',
+            where: 'Mt.Hood Oregon',
+            when: new Date('2018-09-12'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'ultralight camp cook set'
+                },
+                {
+                    item: 'sleeping bag'
+                },
+                {
+                    item: 'water filter'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent5 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Cottonwood Canyon Cookout',
+            where: 'Cottonwood Canyon State Park, OR',
+            when: new Date('2018-10-12'),
+            groupSize: 4,
+            desiredGear: [
+                {
+                    item: 'lawn darts'
+                },
+                {
+                    item: 'pie iron'
+                },
+                {
+                    item: 'bocce ball set'
+                },
+                {
+                    item: 'giant Jenga'
+                },
+                {
+                    item: 'cooler'
+                },
+                {
+                    item: 'SUP'
+                },
+                {
+                    item: 'walkie-talkies'
+                },
+                {
+                    item: 'EZ up tent'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent6 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Oregon Coast Adventure Weekend',
+            where: 'Cannon Beach to Tillamook',
+            when: new Date('2018-06-03'),
+            groupSize: 8,
+            desiredGear: [
+                {
+                    item: 'golf clubs'
+                },
+                {
+                    item: 'hammock'
+                },
+                {
+                    item: 'camp chairs'
+                },
+                {
+                    item: 'frisbee'
+                },
+                {
+                    item: 'beach umbrella'
+                },
+                {
+                    item: 'wetsuit'
+                },
+                {
+                    item: 'kayak'
+                },
+                {
+                    item: 'bike'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent7 = data);
+    });
+
+    beforeEach(() => {
+        return save('events', {
+            description: 'Detroit Lake Party',
+            where: 'Detroit Lake Oregon',
+            when: new Date('2018-08-10'),
+            groupSize: 6,
+            desiredGear: [
+                {
+                    item: 'soccerball'
+                },
+                {
+                    item: 'floaty'
+                },
+                {
+                    item: 'paddle board'
+                },
+                {
+                    item: 'fishing rods'
+                },
+                {
+                    item: 'water skis'
+                },
+                {
+                    item: 'life jacket'
+                },
+                {
+                    item: 'walkie-talkies'
+                },
+                {
+                    item: 'SUP'
+                }
+            ],
+            attendees: [],
+            ownerId: testUser2._id
+        }, token)
+            .then(data => testEvent8 = data);
     });
 
     beforeEach(() => {
@@ -193,7 +390,7 @@ describe('Events API', () => {
     });
 
     /* **********TESTS************* */
-    it('saves an event to the database', () => {
+    it.only('saves an event to the database', () => {
         assert.isOk(testEvent._id);
     });
 
@@ -204,7 +401,7 @@ describe('Events API', () => {
             .then(({ body }) => {
                 assert.deepEqual(body, [
                     testEvent2,
-                    testEvent, 
+                    testEvent
                 ]);
             });
     });
