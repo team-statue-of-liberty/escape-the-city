@@ -130,7 +130,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
-            attendees: [],
+            attendees: [testUser2._id],
             ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
@@ -145,7 +145,7 @@ describe('Events API', () => {
             desiredGear: [{
                 item: 'Food'
             }],
-            attendees: [],
+            attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
