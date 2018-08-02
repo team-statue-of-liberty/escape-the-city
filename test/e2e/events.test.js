@@ -28,7 +28,6 @@ let testEvent2;
 let testActivity1;
 let testActivity2;
 let testActivity3;
-let attendeeList;
 
 const save = (path, data, token = null) => {
     return request
@@ -130,7 +129,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
-            attendees: [testUser2._id],
+            attendees: [],
             ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
@@ -202,13 +201,12 @@ describe('Events API', () => {
             });
     });
 
-    it.only('gets one event by id, populating with correct data', () => {
+    it('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
-                console.log('******BODY*****', body);
-                assert.isDefined(body.invitees);
+                assert.isDefined(body.match);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
                 assert.deepEqual(body.activities[0], makeSimpleActivity(testActivity1));
@@ -229,7 +227,7 @@ describe('Events API', () => {
 
     it('gets events by activity', () => {
         return request
-            .get('/api/events/swimming')
+            .get('/api/events/activity/swimming')
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, [testEvent, testEvent2]);
