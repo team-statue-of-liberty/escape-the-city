@@ -130,7 +130,7 @@ describe('Events API', () => {
             {
                 item: 'Kayak'
             }],
-            attendees: [],
+            attendees: [testUser2._id],
             ownerId: testUser._id
         }, token2)
             .then(data => testEvent = data);
@@ -145,7 +145,7 @@ describe('Events API', () => {
             desiredGear: [{
                 item: 'Food'
             }],
-            attendees: [],
+            attendees: [testUser._id],
             ownerId: testUser2._id
         }, token)
             .then(data => testEvent2 = data);
@@ -202,11 +202,12 @@ describe('Events API', () => {
             });
     });
 
-    it('gets one event by id, populating with correct data', () => {
+    it.only('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
             .then(({ body }) => {
+                console.log('******BODY*****', body);
                 assert.isDefined(body.invitees);
                 assert.isDefined(body.activities);
                 assert.equal(body.activities.length, 2);
@@ -278,15 +279,14 @@ describe('Events API', () => {
             });
     });
 
-    it.only('adds a user to the event attendee list', () => {
+    it('adds a user to the event attendee list', () => {
         return request
             .post(`/api/events/${testEvent._id}/attendees`)
             .set('Authorization', token)
-            .send(testUser2._id)
+            .send(testUser2)
             .then(({ body }) => {
                 assert.equal(body.attendees.length, 1);
                 assert.equal(body.attendees[0], testUser2._id);
             });
     });
-
 });
