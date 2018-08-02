@@ -8,22 +8,8 @@ const checkOk = res => {
     return res;
 };
 
-const makeSimpleGear = (gear) => {
-    const makeSimple = {
-        _id: gear._id,
-        item: gear.item,
-        description: gear.description,
-        quantity: gear.quantity,
-        ownerId: gear.ownerId
-    };
-
-    return makeSimple;
-};
-
-
 let token;
 let floaty;
-let hammock;
 
 const save = (path, data, token = null) => {
     return request
@@ -58,16 +44,6 @@ describe('Gears API', () => {
                         testUser._id = body.id;
                     });
             });
-    });
-
-    beforeEach(() => {
-        return save('gears', {
-            item: 'hammock',
-            description: 'Eno Double Nest 300lb capacity',
-            quantity: 1,
-            ownerId: testUser._id
-        }, token) 
-            .then(data => hammock = data);
     });
 
     beforeEach(() => {

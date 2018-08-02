@@ -12,6 +12,7 @@ describe('Auth API', () => {
     beforeEach(() => dropCollection('users'));
 
     let token;
+    
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -26,6 +27,7 @@ describe('Auth API', () => {
                 token = body.token;
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -40,6 +42,7 @@ describe('Auth API', () => {
                 token = body.token;
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -54,6 +57,7 @@ describe('Auth API', () => {
                 token = body.token;
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -68,6 +72,7 @@ describe('Auth API', () => {
                 token = body.token;
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
@@ -82,6 +87,7 @@ describe('Auth API', () => {
                 token = body.token;
             });
     });
+
     beforeEach(() => {
         return request  
             .post('/api/auth/signup')
