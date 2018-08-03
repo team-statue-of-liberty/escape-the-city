@@ -105,7 +105,7 @@ describe('Events API', () => {
 
     beforeEach(() => {
         return save('gears', {
-            item: 'floaty',
+            item: 'Kayak',
             description: 'unicorn',
             quantity: 3,
             ownerId: testUser._id
@@ -206,7 +206,7 @@ describe('Events API', () => {
             });
     });
 
-    it('gets one event by id, populating with correct data', () => {
+    it.only('gets one event by id, populating with correct data', () => {
         return request
             .get(`/api/events/${testEvent._id}`)
             .then(checkOk)
