@@ -191,7 +191,7 @@ describe('Events API', () => {
 
     /* **********TESTS************* */
 
-    it('gets top 5 events', () => {
+    it.only('gets top 5 events', () => {
         return request
             .get('/api/events/top5')
             .then(checkOk)
