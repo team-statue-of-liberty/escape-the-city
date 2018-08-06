@@ -196,6 +196,7 @@ describe('Events API', () => {
             .get('/api/events/top5')
             .then(checkOk)
             .then(({ body }) => {
+                // where's the assertion?
                 console.log('***AGGREGATION***', body);
             });
     });

@@ -1,6 +1,6 @@
 const chai = require('chai');
 const { assert } = chai;
-const GearModel = require('../../lib/models/gear');
+const Gear = require('../../lib/models/gear');
 const { getErrors } = require('./helpers');
 const { Types } = require('mongoose');
 
@@ -13,7 +13,7 @@ describe('Gear API', () => {
             quantity: 1,
             ownerId: Types.ObjectId()     
         };
-        const gear = new GearModel(data);
+        const gear = new Gear(data);
 
         const json = gear.toJSON();
         delete json._id;
@@ -22,7 +22,7 @@ describe('Gear API', () => {
     });
     
     it('validates required fields', () => {
-        const gear = new GearModel({});
+        const gear = new Gear({});
         const errors = getErrors(gear.validateSync(), 3);
         assert.equal(errors.item.kind, 'required');
         assert.equal(errors.description.kind, 'required');  

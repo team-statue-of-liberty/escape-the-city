@@ -19,16 +19,6 @@ const makeSimpleActivity = (activity) => {
     return simple;
 };
 
-let token;
-let token2;
-let hammock;
-let floaty;
-let testEvent;
-let testEvent2;
-let testActivity1;
-let testActivity2;
-let testActivity3;
-
 const save = (path, data, token = null) => {
     return request
         .post(`/api/${path}`)
@@ -56,11 +46,22 @@ const testUser2 = {
 
 
 describe('Events API', () => {
-
+    
     beforeEach(() => dropCollection('users'));
     beforeEach(() => dropCollection('events'));
     beforeEach(() => dropCollection('activities'));
     beforeEach(() => dropCollection('gears'));
+
+    // scope closer to where used
+    let token;
+    let token2;
+    let hammock;
+    let floaty;
+    let testEvent;
+    let testEvent2;
+    let testActivity1;
+    let testActivity2;
+    let testActivity3;
 
     beforeEach(() => {
         return request  
